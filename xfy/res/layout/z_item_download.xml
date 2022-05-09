@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@drawable/selector_common_bg" android:padding="@dimen/nb_padding_normal" android:layout_width="fill_parent" android:layout_height="85.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <TextView android:textSize="@dimen/nb_text_normal" android:textColor="@color/nb_text_default" android:id="@id/download_tv_title" android:layout_width="220.0dip" android:layout_height="wrap_content" android:maxLines="1" android:singleLine="true" />
+        <TextView android:textSize="@dimen/nb_text_normal" android:id="@id/download_tv_msg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" />
+        <TextView android:id="@id/download_tv_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/nb_margin_small" android:layout_above="@id/download_pb_show" />
+        <ProgressBar android:id="@id/download_pb_show" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" style="@style/Widget.AppCompat.ProgressBar.Horizontal" />
+    </RelativeLayout>
+    <RelativeLayout android:gravity="center" android:orientation="vertical" android:id="@id/download_rl_toggle" android:layout_width="50.0dip" android:layout_height="fill_parent">
+        <ImageView android:id="@id/download_iv_status" android:layout_width="30.0dip" android:layout_height="30.0dip" android:src="@drawable/ic_download_loading" />
+        <TextView android:id="@id/download_tv_status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:text="开始" android:layout_below="@id/download_iv_status" />
+    </RelativeLayout>
+</LinearLayout>

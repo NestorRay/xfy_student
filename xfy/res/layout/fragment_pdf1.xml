@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.xhly.easystud.zhan.studentyuxi.frag.pdf.CenterRecyclerView android:id="@id/rvNavigation" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="60.0dip" android:layout_alignParentBottom="true" />
+    <com.github.barteksc.pdfviewer.PDFView android:id="@id/pdf_viewer" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/dp_10" android:layout_marginBottom="@dimen/dp_10" android:layout_above="@id/rvNavigation" android:layout_marginStart="@dimen/dp_10" android:layout_marginEnd="@dimen/dp_10" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/llIndex" android:background="@drawable/shape_pdf_number_bg" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="@dimen/dp_30" android:layout_marginBottom="@dimen/dp_10" android:layout_alignBottom="@id/pdf_viewer" android:layout_centerHorizontal="true">
+        <TextView android:textSize="@dimen/sp_16" android:textColor="@color/white" android:id="@id/tvPosNumber" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="/" />
+        <TextView android:textSize="@dimen/sp_16" android:textColor="@color/white" android:id="@id/tvSumNumber" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </LinearLayout>
+</RelativeLayout>

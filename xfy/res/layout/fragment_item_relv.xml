@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:paddingTop="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/relv_noti" android:background="@drawable/shape_rlyt_bg" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/sp_18" android:textColor="@color/txtWd" android:id="@id/tv_content" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="15.0dip" android:text="" style="@style/singleText" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="15.0dip" android:layout_marginBottom="13.0dip" android:layout_below="@id/tv_content">
+            <TextView android:textSize="17.0sp" android:textColor="#ff999999" android:id="@id/tv_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2020-03-02 15:40" android:drawableLeft="@drawable/naozhong" android:drawablePadding="10.0dip" />
+            <TextView android:textSize="17.0sp" android:textColor="#ff999999" android:id="@id/tv_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="25.0dip" android:text="王老师" android:drawableLeft="@drawable/dname" android:drawablePadding="10.0dip" android:layout_toRightOf="@id/iv_preson" />
+        </LinearLayout>
+        <TextView android:textSize="16.0sp" android:textColor="#ffff6633" android:gravity="center" android:id="@id/tv_xiangqing" android:background="@drawable/shape_noti_bg" android:paddingTop="@dimen/dp_7" android:paddingBottom="@dimen/dp_7" android:layout_width="90.0dip" android:layout_height="wrap_content" android:layout_marginRight="20.0dip" android:text="详情" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/web_pop" android:background="#66000000" android:visibility="gone" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/rl_title" android:background="@drawable/shape_pop_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_centerInParent="true" android:layout_marginStart="@dimen/dp_20" android:layout_marginEnd="@dimen/dp_20">
+        <TextView android:textSize="14.0sp" android:textColor="@color/gray" android:id="@id/al_title" android:padding="@dimen/dp_10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="提示" />
+        <TextView android:id="@id/tv_msg" android:padding="@dimen/dp_10" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/dp_30" android:minLines="2" android:layout_below="@id/tv_title" />
+        <EditText android:id="@id/et_value" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/tv_msg" />
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_10" android:layout_below="@id/et_value">
+            <TextView android:id="@id/tv_ok" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="确定" android:layout_alignParentEnd="true" />
+            <TextView android:id="@id/tv_cancel" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="取消" android:layout_toStartOf="@id/tv_ok" />
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

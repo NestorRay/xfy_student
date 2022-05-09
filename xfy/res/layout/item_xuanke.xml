@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/shape_rlyt_bg" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_marginStart="10.0dip" android:layout_marginEnd="10.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/top" android:layout_width="fill_parent" android:layout_height="35.0dip">
+        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton android:textColor="@color/zj_blue" android:id="@id/status_btn" android:paddingLeft="10.0dip" android:paddingTop="2.0dip" android:paddingRight="10.0dip" android:paddingBottom="2.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="数学" app:qmui_borderColor="@color/zj_blue" app:qmui_borderWidth="1.0px" app:qmui_radius="5.0dip" />
+        <org.sufficientlysecure.htmltextview.HtmlTextView android:textSize="17.0sp" android:textStyle="bold" android:textColor="@color/txt_hei" android:ellipsize="end" android:id="@id/title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" android:maxLines="1" android:singleLine="true" android:lineSpacingExtra="5.0dip" android:layout_marginStart="5.0dip" />
+    </LinearLayout>
+    <org.sufficientlysecure.htmltextview.HtmlTextView android:textSize="14.0sp" android:textColor="@color/txt_gray" android:id="@id/content" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="3.0dip" android:text="" />
+    <RelativeLayout android:id="@id/middle" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip">
+        <com.qmuiteam.qmui.widget.QMUIRadiusImageView2 android:id="@id/homeIcon" android:background="@color/c_line_gray" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_centerVertical="true" app:qmui_is_circle="true" />
+        <LinearLayout android:orientation="vertical" android:id="@id/userinfo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginTop="10.0dip" android:layout_centerVertical="true" android:layout_toEndOf="@id/homeIcon">
+            <TextView android:textSize="14.0sp" android:textColor="@color/txt_gray" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="授课" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/txt_gray" android:id="@id/username" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="南老师" />
+        </LinearLayout>
+        <TextView android:textSize="14.0sp" android:textColor="@color/skip_color" android:gravity="center" android:id="@id/ye" android:background="@drawable/student_num_label" android:layout_width="80.0dip" android:layout_height="26.0dip" android:layout_marginTop="8.0dip" android:text="" android:layout_marginStart="8.0dip" android:layout_toEndOf="@id/userinfo" />
+    </RelativeLayout>
+    <View android:background="@color/zj_gay_line" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_marginTop="10.0dip" android:layout_marginBottom="10.0dip" />
+    <RelativeLayout android:id="@id/bottom" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="15.0sp" android:textColor="@color/txt_gray" android:id="@id/kbsjlable" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="开播时间:" />
+        <TextView android:textSize="15.0sp" android:textColor="@color/txt_gray" android:id="@id/kbsj" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_marginStart="5.0dip" android:layout_toEndOf="@id/kbsjlable" />
+        <TextView android:textSize="15.0sp" android:textColor="@color/txt_gray" android:id="@id/bm" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="已报名" android:layout_marginStart="5.0dip" android:layout_toEndOf="@id/kbsj" />
+        <TextView android:textSize="15.0sp" android:textStyle="bold" android:textColor="#ffff6633" android:id="@id/num" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+</LinearLayout>

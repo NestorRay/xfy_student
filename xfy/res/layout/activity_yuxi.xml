@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/listAll" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/toplBar" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginTop="@dimen/status_bar_height" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent">
+            <TextView android:textSize="@dimen/sp_16" android:textColor="@color/logBut" android:id="@id/tv_back" android:paddingLeft="@dimen/dp_13" android:paddingTop="10.0dip" android:paddingBottom="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ret" android:drawableLeft="@drawable/w_ret" android:drawablePadding="@dimen/dp_2" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintTop_toTopOf="parent" />
+            <TextView android:textSize="18.0sp" android:textColor="@color/txt_hei" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="学生预习" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout android:orientation="horizontal" android:background="@color/wlback" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="0.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toBottomOf="@id/toplBar">
+            <LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="40.0dip">
+                    <Spinner android:textSize="16.0sp" android:textColor="@color/txt_hei" android:id="@id/sp_yuxi" android:layout_width="0.0dip" android:layout_height="@dimen/dp_40" android:layout_weight="1.0" android:spinnerMode="dropdown" />
+                    <RelativeLayout android:id="@id/refresh_jc" android:layout_width="40.0dip" android:layout_height="40.0dip">
+                        <ImageView android:layout_width="24.0dip" android:layout_height="24.0dip" android:src="@drawable/jc_refresh" android:layout_centerInParent="true" />
+                    </RelativeLayout>
+                </LinearLayout>
+                <CheckBox android:textSize="15.0sp" android:id="@id/chk_all" android:paddingLeft="@dimen/dp_17" android:paddingTop="@dimen/dp_8" android:paddingBottom="@dimen/dp_8" android:clickable="true" android:layout_width="fill_parent" android:layout_height="@dimen/dp_40" android:button="@null" android:text="全部" />
+                <androidx.recyclerview.widget.RecyclerView android:gravity="center" android:id="@id/relv_zhangjie" android:visibility="visible" android:scrollbars="none" android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="wrap_content" android:overScrollMode="never" app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                <include android:id="@id/rlyt_empty1" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" layout="@layout/empty_bg" />
+            </LinearLayout>
+            <com.scwang.smartrefresh.layout.SmartRefreshLayout android:id="@id/smart_yuxilist" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="2.0">
+                <com.scwang.smartrefresh.header.MaterialHeader android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="5.0dip" android:layout_marginRight="5.0dip">
+                    <include android:id="@id/rlyt_empty" android:layout_width="fill_parent" android:layout_height="fill_parent" layout="@layout/empty_bg" />
+                    <androidx.recyclerview.widget.RecyclerView android:id="@id/relv_yuxi" android:paddingBottom="5.0dip" android:visibility="visible" android:scrollbars="none" android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="fill_parent" android:overScrollMode="never" app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                </LinearLayout>
+                <com.scwang.smartrefresh.layout.footer.ClassicsFooter android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

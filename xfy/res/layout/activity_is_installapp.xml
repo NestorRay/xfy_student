@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/wlback" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/rlyt_topbar" android:background="@color/white" android:paddingTop="@dimen/dp_24" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/tv_back_size" android:textColor="#ff6098ff" android:id="@id/tv_back" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:layout_marginTop="10.0dip" android:layout_marginBottom="10.0dip" android:text="返回" android:drawableLeft="@drawable/w_ret" />
+        <TextView android:textSize="@dimen/tv_title_size" android:textColor="#ff333333" android:id="@id/tv_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_marginBottom="10.0dip" android:text="" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <Button android:id="@id/btn_not_install_app" android:layout_width="150.0dip" android:layout_height="60.0dip" android:layout_marginLeft="@dimen/dp_15" android:layout_marginTop="15.0dip" android:text="禁止安装应用" android:layout_below="@id/rlyt_topbar" />
+    <Button android:id="@id/btn_install_app" android:layout_width="150.0dip" android:layout_height="60.0dip" android:layout_marginLeft="@dimen/dp_15" android:text="允许安装应用" android:layout_toRightOf="@id/btn_not_install_app" android:layout_alignBottom="@id/btn_not_install_app" />
+    <Button android:id="@id/btn_not_Usb" android:layout_width="150.0dip" android:layout_height="60.0dip" android:layout_marginLeft="@dimen/dp_15" android:text="禁止Usb调试" android:layout_below="@id/btn_not_install_app" />
+    <Button android:id="@id/btn_Usb" android:layout_width="150.0dip" android:layout_height="60.0dip" android:layout_marginLeft="@dimen/dp_15" android:text="允许Usb调试" android:layout_toRightOf="@id/btn_not_Usb" android:layout_alignBottom="@id/btn_not_Usb" />
+    <Button android:id="@id/btn_not_sd" android:layout_width="150.0dip" android:layout_height="60.0dip" android:layout_marginLeft="@dimen/dp_15" android:text="禁止SD卡使用" android:layout_below="@id/btn_not_Usb" />
+    <Button android:id="@id/btn_sd" android:layout_width="150.0dip" android:layout_height="60.0dip" android:layout_marginLeft="@dimen/dp_15" android:text="允许SD卡使用" android:layout_toRightOf="@id/btn_not_sd" android:layout_alignBottom="@id/btn_not_sd" />
+    <TextView android:textSize="16.0sp" android:id="@id/tv_show_white_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_marginTop="15.0dip" android:text="" android:layout_below="@id/btn_not_sd" />
+    <Button android:id="@id/btn_show_white_name" android:layout_width="150.0dip" android:layout_height="60.0dip" android:layout_marginLeft="15.0dip" android:layout_marginTop="15.0dip" android:text="展示白名单" android:layout_below="@id/tv_show_white_name" />
+    <Button android:id="@id/btn_remove_white_name" android:layout_width="150.0dip" android:layout_height="60.0dip" android:layout_marginLeft="15.0dip" android:text="移除白名单" android:layout_toRightOf="@id/btn_show_white_name" android:layout_alignBottom="@id/btn_show_white_name" />
+</RelativeLayout>

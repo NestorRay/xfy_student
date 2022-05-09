@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="@mipmap/class_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:background="@color/gray_bg_trans" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <FrameLayout android:id="@id/tingjiang_fl" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:layout_gravity="center" android:layout_width="528.0dip" android:layout_height="62.0dip" android:src="@mipmap/class_tingjiang" />
+    </FrameLayout>
+    <FrameLayout android:orientation="horizontal" android:id="@id/pingmu_fl" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <com.xhly.easystud.widget.ZJPictureViewHolder android:id="@id/picPlayerViewHolder" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <com.xhly.easystud.widget.ZJPicturePlayerView android:id="@id/picPlayerView" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        </com.xhly.easystud.widget.ZJPictureViewHolder>
+    </FrameLayout>
+    <FrameLayout android:id="@id/qiangda_fl" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <FrameLayout android:layout_gravity="center" android:layout_width="399.0dip" android:layout_height="404.0dip">
+            <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@mipmap/class_qiangda_bg" android:scaleType="fitXY" />
+            <ImageView android:layout_gravity="center_horizontal" android:layout_width="208.0dip" android:layout_height="49.0dip" android:layout_marginTop="245.0dip" android:src="@mipmap/answer_wrong_sidai" android:scaleType="fitXY" />
+            <TextView android:textSize="20.0sp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/qiangda_name_tv" android:layout_width="208.0dip" android:layout_height="36.0dip" android:layout_marginTop="245.0dip" android:text="" />
+            <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton android:textSize="26.0sp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/qiangda_btn" android:layout_width="156.0dip" android:layout_height="40.0dip" android:layout_marginTop="323.0dip" android:text="开始抢答" app:qmui_backgroundColor="@color/mainColor" app:qmui_radius="20.0dip" />
+        </FrameLayout>
+    </FrameLayout>
+    <FrameLayout android:id="@id/dianming_fl" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <FrameLayout android:layout_gravity="center" android:layout_width="399.0dip" android:layout_height="404.0dip">
+            <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@mipmap/class_suiji_dianming" android:scaleType="fitXY" />
+            <com.qmuiteam.qmui.widget.QMUIRadiusImageView android:layout_gravity="center_horizontal" android:id="@id/head_imageview1" android:layout_width="120.0dip" android:layout_height="120.0dip" android:layout_marginTop="130.0dip" android:scaleType="fitXY" app:qmui_corner_radius="60.0dip" />
+            <ImageView android:layout_gravity="center_horizontal" android:layout_width="208.0dip" android:layout_height="49.0dip" android:layout_marginTop="245.0dip" android:src="@mipmap/answer_wrong_sidai" android:scaleType="fitXY" />
+            <TextView android:textSize="23.0sp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/username_tv3" android:layout_width="208.0dip" android:layout_height="36.0dip" android:layout_marginTop="245.0dip" android:text="" />
+        </FrameLayout>
+        <TextView android:textSize="26.0sp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="40.0dip" android:layout_marginTop="400.0dip" android:text="恭喜,你被点到名字了" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/answer_right_fl" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <FrameLayout android:layout_gravity="center" android:layout_width="399.0dip" android:layout_height="404.0dip" android:layout_marginBottom="15.0dip">
+            <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@mipmap/header_answer_right" android:scaleType="fitXY" />
+            <com.qmuiteam.qmui.widget.QMUIRadiusImageView android:layout_gravity="center_horizontal" android:id="@id/head_imageview2" android:layout_width="120.0dip" android:layout_height="120.0dip" android:layout_marginTop="130.0dip" android:scaleType="fitXY" app:qmui_corner_radius="60.0dip" />
+            <ImageView android:layout_gravity="center_horizontal" android:layout_width="208.0dip" android:layout_height="49.0dip" android:layout_marginTop="245.0dip" android:src="@mipmap/answer_right_sidai" android:scaleType="fitXY" />
+            <TextView android:textSize="23.0sp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/username_tv1" android:layout_width="208.0dip" android:layout_height="36.0dip" android:layout_marginTop="245.0dip" android:text="" />
+            <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton android:textSize="26.0sp" android:textColor="@color/white" android:layout_gravity="center_horizontal" android:paddingLeft="@dimen/dp_40" android:paddingTop="@dimen/dp_3" android:paddingRight="@dimen/dp_40" android:paddingBottom="@dimen/dp_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="313.0dip" android:text="回答正确" app:qmui_backgroundColor="@color/answer_right_color" app:qmui_borderColor="@color/answer_right_color" app:qmui_borderWidth="1.0dip" app:qmui_radius="20.0dip" />
+        </FrameLayout>
+        <LinearLayout android:gravity="center" android:layout_gravity="center_horizontal" android:background="@drawable/shape_class_answer" android:paddingLeft="15.0dip" android:paddingTop="10.0dip" android:paddingRight="15.0dip" android:paddingBottom="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="435.0dip">
+            <TextView android:textSize="23.0sp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/user_answer2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" />
+        </LinearLayout>
+    </FrameLayout>
+    <FrameLayout android:id="@id/answer_wrong_fl" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <FrameLayout android:layout_gravity="center" android:layout_width="399.0dip" android:layout_height="404.0dip" android:layout_marginBottom="15.0dip">
+            <ImageView android:layout_gravity="center_horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@mipmap/header_answer_wrong" android:scaleType="fitXY" />
+            <com.qmuiteam.qmui.widget.QMUIRadiusImageView android:layout_gravity="center_horizontal" android:id="@id/head_imageview3" android:layout_width="120.0dip" android:layout_height="120.0dip" android:layout_marginTop="130.0dip" android:scaleType="fitXY" app:qmui_corner_radius="60.0dip" />
+            <ImageView android:layout_gravity="center_horizontal" android:layout_width="208.0dip" android:layout_height="49.0dip" android:layout_marginTop="245.0dip" android:src="@mipmap/answer_wrong_sidai" android:scaleType="fitXY" />
+            <TextView android:textSize="23.0sp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/username_tv2" android:layout_width="208.0dip" android:layout_height="36.0dip" android:layout_marginTop="245.0dip" android:text="" />
+            <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton android:textSize="26.0sp" android:textColor="@color/white" android:layout_gravity="center_horizontal" android:paddingLeft="@dimen/dp_40" android:paddingTop="@dimen/dp_3" android:paddingRight="@dimen/dp_40" android:paddingBottom="@dimen/dp_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="313.0dip" android:text="回答错误" app:qmui_backgroundColor="@color/answer_wrong_color" app:qmui_borderColor="@color/answer_wrong_color" app:qmui_borderWidth="1.0dip" app:qmui_radius="20.0dip" />
+        </FrameLayout>
+        <LinearLayout android:gravity="center" android:layout_gravity="center_horizontal" android:background="@drawable/shape_class_answer" android:paddingLeft="15.0dip" android:paddingTop="10.0dip" android:paddingRight="15.0dip" android:paddingBottom="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="435.0dip">
+            <TextView android:textSize="23.0sp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/user_answer" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" />
+        </LinearLayout>
+    </FrameLayout>
+    <FrameLayout android:id="@id/answer_null_fl" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <FrameLayout android:layout_gravity="center" android:layout_width="399.0dip" android:layout_height="404.0dip" android:layout_marginBottom="15.0dip">
+            <ImageView android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@mipmap/header_answer_null" android:scaleType="fitXY" />
+            <com.qmuiteam.qmui.widget.QMUIRadiusImageView android:layout_gravity="center_horizontal" android:id="@id/head_imageview_null" android:layout_width="120.0dip" android:layout_height="120.0dip" android:layout_marginTop="130.0dip" android:scaleType="fitXY" app:qmui_corner_radius="60.0dip" />
+            <ImageView android:layout_gravity="center_horizontal" android:layout_width="208.0dip" android:layout_height="49.0dip" android:layout_marginTop="245.0dip" android:src="@mipmap/answer_null_sidai" android:scaleType="fitXY" />
+            <TextView android:textSize="23.0sp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/username_tv_null" android:layout_width="208.0dip" android:layout_height="36.0dip" android:layout_marginTop="245.0dip" android:text="" />
+            <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton android:textSize="26.0sp" android:textColor="@color/white" android:layout_gravity="center_horizontal" android:paddingLeft="@dimen/dp_40" android:paddingTop="@dimen/dp_3" android:paddingRight="@dimen/dp_40" android:paddingBottom="@dimen/dp_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="313.0dip" android:text="没有作答" app:qmui_backgroundColor="@color/answer_null_color" app:qmui_borderColor="@color/answer_null_color" app:qmui_borderWidth="1.0dip" app:qmui_radius="20.0dip" />
+        </FrameLayout>
+        <LinearLayout android:gravity="center" android:layout_gravity="center_horizontal" android:background="@drawable/shape_class_answer" android:paddingLeft="15.0dip" android:paddingTop="10.0dip" android:paddingRight="15.0dip" android:paddingBottom="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="435.0dip">
+            <TextView android:textSize="23.0sp" android:textStyle="bold" android:textColor="@color/white" android:id="@id/user_answer_null" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" />
+        </LinearLayout>
+    </FrameLayout>
+    <FrameLayout android:id="@id/judge_fl" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <FrameLayout android:id="@id/xuanze_fl" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <FrameLayout android:id="@id/zhuguan_fl" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <FrameLayout android:id="@id/yuantu_fl" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <FrameLayout android:id="@id/tangce_fl" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip">
+        <TextView android:textSize="18.0sp" android:textStyle="bold" android:textColor="@color/exit_class_username" android:id="@id/tingjiang_username" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <RelativeLayout android:layout_gravity="bottom" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton android:textColor="@color/zj_red" android:id="@id/status_btn" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:text="未连接" app:qmui_borderColor="@color/zj_red" />
+    </RelativeLayout>
+    <LinearLayout android:layout_gravity="bottom|center|right" android:orientation="horizontal" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton android:id="@id/judge_btn" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:text="判断题" />
+        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton android:id="@id/keguan_btn" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:text="客观题" />
+        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton android:id="@id/zhuguan_btn" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:text="主观题" />
+        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton android:id="@id/close_ans_btn" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:text="关闭" />
+        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton android:id="@id/tangce_btn" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:text="堂测" />
+        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton android:id="@id/tongping_btn" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:text="同屏" />
+    </LinearLayout>
+    <RelativeLayout android:id="@id/rlyt_back" android:background="@android:color/transparent" android:visibility="visible" android:layout_width="@dimen/dp_95" android:layout_height="@dimen/dp_80" android:layout_marginTop="@dimen/status_bar_height" />
+    <include android:id="@id/inclu_class" android:visibility="gone" layout="@layout/public_key" />
+</FrameLayout>

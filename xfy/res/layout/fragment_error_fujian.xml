@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/frame_error_xaingq" android:background="@color/wlback" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/toplBar" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="wrap_content" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <TextView android:textSize="@dimen/sp_16" android:textColor="@color/logBut" android:id="@id/ret" android:paddingLeft="@dimen/dp_13" android:paddingTop="@dimen/dp_14" android:paddingBottom="@dimen/dp_11" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ret" android:drawableLeft="@drawable/w_ret" android:drawablePadding="@dimen/dp_2" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintTop_toTopOf="parent" />
+        <TextView android:textSize="@dimen/sp_18" android:textColor="@color/txt_hei" android:ellipsize="end" android:gravity="center" android:id="@id/topTit" android:layout_width="@dimen/tv_title_width" android:layout_height="wrap_content" android:text="@string/errors" android:maxLines="1" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" />
+        <RelativeLayout android:gravity="center" android:id="@id/rlyt_jiangjie_fujian" android:visibility="gone" android:layout_width="130.0dip" android:layout_height="@dimen/dp_0" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent">
+            <TextView android:textSize="16.0sp" android:textColor="@color/logBut" android:gravity="center" android:id="@id/tv_jiangjie" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="查看讲解" android:drawableLeft="@drawable/iv_jiangjie" android:drawablePadding="2.0dip" />
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="@dimen/dp_10" android:layout_below="@id/toplBar">
+        <LinearLayout android:orientation="vertical" android:background="@drawable/bg_fg_white" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <RelativeLayout android:orientation="horizontal" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="16.0sp" android:textColor="@color/pigai" android:gravity="center" android:id="@id/zuoyefujian" android:layout_width="@dimen/dp_70" android:layout_height="@dimen/dp_40" android:text="作业" android:layout_centerVertical="true" />
+                <View android:layout_gravity="center_horizontal" android:id="@id/view_x" android:background="@color/c_line_gray" android:layout_width="1.0dip" android:layout_height="16.0dip" android:layout_centerVertical="true" android:layout_marginStart="10.0dip" android:layout_marginEnd="10.0dip" android:layout_toEndOf="@id/zuoyefujian" />
+                <TextView android:textSize="16.0sp" android:textColor="@color/heise" android:gravity="center" android:id="@id/daanfujian" android:layout_width="@dimen/dp_70" android:layout_height="@dimen/dp_40" android:text="答案" android:layout_centerVertical="true" android:layout_toEndOf="@id/view_x" />
+            </RelativeLayout>
+            <LinearLayout android:orientation="horizontal" android:id="@id/llyt_content" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+                <androidx.recyclerview.widget.RecyclerView android:id="@id/relvImage" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="3.0" app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                <TextView android:id="@id/tv_null" android:layout_width="100.0dip" android:layout_height="fill_parent" />
+                <ScrollView android:id="@id/scr_jiexi" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="fill_parent" android:fillViewport="true" android:layout_weight="2.0">
+                    <RelativeLayout android:id="@id/llyt_jiexi" android:background="@color/white" android:padding="5.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                        <RelativeLayout android:id="@id/rlyt_jiexi_daan" android:background="@drawable/bg_fg_white" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                            <TextView android:id="@id/tv_daan" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_10" android:text="答案 :" />
+                            <org.sufficientlysecure.htmltextview.HtmlTextView android:textSize="@dimen/sp_14" android:textColor="@color/txtWd" android:id="@id/html_daan_funjian" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_5" android:layout_marginBottom="@dimen/dp_5" android:textScaleX="1.0" android:layout_below="@id/tv_daan" android:lineSpacingExtra="0.0dip" android:lineSpacingMultiplier="1.2" android:letterSpacing="0.1" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </ScrollView>
+            </LinearLayout>
+            <View android:background="@color/nb_divider_narrow" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+            <RelativeLayout android:id="@id/llyt_anniu" android:layout_width="fill_parent" android:layout_height="@dimen/dp_70">
+                <View android:id="@id/meError" android:background="@drawable/iv_cuo" android:layout_width="@dimen/dp_173" android:layout_height="@dimen/dp_40" android:layout_marginLeft="@dimen/dp_20" android:layout_marginTop="10.0dip" android:layout_marginRight="@dimen/dp_20" android:layout_marginBottom="10.0dip" android:layout_centerVertical="true" android:layout_alignParentStart="true" />
+                <View android:id="@id/meRight" android:background="@drawable/iv_dui" android:layout_width="@dimen/dp_173" android:layout_height="@dimen/dp_40" android:layout_marginTop="10.0dip" android:layout_marginBottom="10.0dip" android:layout_centerVertical="true" android:layout_toEndOf="@id/meError" />
+                <RelativeLayout android:gravity="center" android:id="@id/rlyt_jiexi_fujian" android:visibility="visible" android:layout_width="100.0dip" android:layout_height="70.0dip" android:layout_centerVertical="true" android:layout_alignParentEnd="true">
+                    <TextView android:id="@id/tv_jiexi" android:background="@mipmap/iv_jiexi" android:layout_width="@dimen/dp_24" android:layout_height="@dimen/dp_29" />
+                </RelativeLayout>
+                <RelativeLayout android:gravity="center" android:id="@id/rlyt_jiexi_daan_fujian_2" android:visibility="gone" android:layout_width="100.0dip" android:layout_height="70.0dip" android:layout_centerVertical="true" android:layout_alignParentEnd="true">
+                    <TextView android:textSize="@dimen/sp_12" android:textColor="@color/txt_hei" android:gravity="center" android:id="@id/tv_jiexi_daan" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/analysis" android:drawableLeft="@mipmap/iv_jiexi_daan" android:drawablePadding="@dimen/dp_5" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

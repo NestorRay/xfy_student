@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/rlyt_root" android:background="@color/zj_white" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/rlyt_wifi" android:layout_width="64.0dip" android:layout_height="wrap_content" android:layout_alignTop="@id/rlyt_wifi_name" android:layout_alignBottom="@id/rlyt_wifi_name" android:layout_alignParentRight="true">
+        <ImageView android:id="@id/wifi_imageview" android:layout_width="24.0dip" android:layout_height="24.0dip" android:src="@mipmap/wifi_5" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <RelativeLayout android:orientation="vertical" android:id="@id/rlyt_wifi_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="10.0dip" android:layout_marginBottom="10.0dip" android:layout_toLeftOf="@id/rlyt_wifi">
+        <TextView android:textSize="16.0sp" android:textColor="@color/zj_gay_title" android:id="@id/wifi_name_textview" android:paddingTop="2.0dip" android:paddingBottom="2.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="名字" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/zj_gay_title2" android:id="@id/status_textview" android:paddingTop="2.0dip" android:paddingBottom="2.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="0.0dip" android:text="状态" android:layout_below="@id/wifi_name_textview" />
+    </RelativeLayout>
+</RelativeLayout>

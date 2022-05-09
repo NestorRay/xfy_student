@@ -1,0 +1,5325 @@
+.class public Lcom/tencent/smtt/sdk/TbsShareManager;
+.super Ljava/lang/Object;
+.source "TbsShareManager.java"
+
+
+# static fields
+.field private static a:Landroid/content/Context; = null
+
+.field private static b:Z = false
+
+.field private static c:Ljava/lang/String; = null
+
+.field private static d:Ljava/lang/String; = null
+
+.field private static e:I = 0x0
+
+.field private static f:Ljava/lang/String; = null
+
+.field private static g:Z = false
+
+.field private static h:Z = false
+
+.field private static i:Z = false
+
+.field private static j:Ljava/lang/String; = null
+
+.field private static k:Z = false
+
+.field private static l:Z = false
+
+.field public static mHasQueryed:Z = false
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 0
+
+    .line 27
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+.method static a(Landroid/content/Context;Z)I
+    .locals 0
+
+    .line 315
+    invoke-static {p0, p1}, Lcom/tencent/smtt/sdk/TbsShareManager;->b(Landroid/content/Context;Z)Z
+
+    .line 317
+    sget p0, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    return p0
+.end method
+
+.method static a()Ljava/lang/String;
+    .locals 1
+
+    .line 305
+    sget-object v0, Lcom/tencent/smtt/sdk/TbsShareManager;->d:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static a(Landroid/content/Context;)V
+    .locals 4
+
+    const-string v0, "TbsShareManager"
+
+    const-string v1, "shareTbsCore #1"
+
+    .line 36
+    invoke-static {v0, v1}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 38
+    :try_start_0
+    new-instance v0, Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;
+
+    invoke-direct {v0, p0}, Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;-><init>(Landroid/content/Context;)V
+
+    .line 39
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Lcom/tencent/smtt/sdk/m;->q(Landroid/content/Context;)Ljava/io/File;
+
+    move-result-object v1
+
+    .line 40
+    invoke-static {p0, v0, v1}, Lcom/tencent/smtt/sdk/TbsShareManager;->a(Landroid/content/Context;Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;Ljava/io/File;)V
+
+    .line 42
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Lcom/tencent/smtt/sdk/m;->r(Landroid/content/Context;)Ljava/io/File;
+
+    move-result-object p0
+
+    const-string v1, "TbsShareManager"
+
+    .line 44
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "shareTbsCore tbsShareDir is "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 45
+    invoke-virtual {p0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string v1, "755"
+
+    invoke-virtual {v0, p0, v1}, Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;->a(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p0
+
+    const-string v0, "TbsShareManager"
+
+    .line 48
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "shareTbsCore tbsShareDir error is "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/Throwable;->getMessage()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v2, " ## "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/Throwable;->getCause()Ljava/lang/Throwable;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 49
+    invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+
+    :goto_0
+    return-void
+.end method
+
+.method private static a(Landroid/content/Context;I)V
+    .locals 9
+
+    .line 814
+    sget-object v0, Lcom/tencent/smtt/sdk/TbsShareManager;->a:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/tencent/smtt/sdk/TbsPVConfig;->getInstance(Landroid/content/Context;)Lcom/tencent/smtt/sdk/TbsPVConfig;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/tencent/smtt/sdk/TbsPVConfig;->isDisableHostBackupCore()Z
+
+    move-result v0
+
+    if-nez v0, :cond_7
+
+    .line 816
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Lcom/tencent/smtt/sdk/m;->t(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7
+
+    const/4 v0, 0x5
+
+    .line 818
+    new-array v0, v0, [Ljava/lang/String;
+
+    const-string v1, "com.tencent.tbs"
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const-string v1, "com.tencent.mm"
+
+    const/4 v3, 0x1
+
+    aput-object v1, v0, v3
+
+    const/4 v1, 0x2
+
+    const-string v3, "com.tencent.mobileqq"
+
+    aput-object v3, v0, v1
+
+    const/4 v1, 0x3
+
+    const-string v3, "com.qzone"
+
+    aput-object v3, v0, v1
+
+    const/4 v1, 0x4
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    aput-object v3, v0, v1
+
+    const-string v1, "TbsShareManager"
+
+    .line 819
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "find host backup core to unzip #1"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    new-instance v4, Ljava/lang/Throwable;
+
+    invoke-direct {v4}, Ljava/lang/Throwable;-><init>()V
+
+    invoke-static {v4}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v1, v3}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 820
+    array-length v1, v0
+
+    const/4 v3, 0x0
+
+    :goto_0
+    if-ge v3, v1, :cond_6
+
+    aget-object v4, v0, v3
+
+    .line 822
+    invoke-static {p0, v4}, Lcom/tencent/smtt/sdk/TbsShareManager;->getBackupCoreVersion(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v5
+
+    const-wide/16 v6, 0x0
+
+    if-ne p1, v5, :cond_2
+
+    .line 824
+    invoke-static {p0, v4, v2}, Lcom/tencent/smtt/sdk/TbsShareManager;->getPackageContext(Landroid/content/Context;Ljava/lang/String;Z)Landroid/content/Context;
+
+    move-result-object v5
+
+    .line 825
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v5}, Lcom/tencent/smtt/sdk/m;->f(Landroid/content/Context;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    goto/16 :goto_1
+
+    .line 830
+    :cond_0
+    invoke-static {p0, v4}, Lcom/tencent/smtt/sdk/TbsShareManager;->getBackupCoreFile(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v5
+
+    .line 832
+    invoke-static {p0, v5, v6, v7, p1}, Lcom/tencent/smtt/utils/a;->a(Landroid/content/Context;Ljava/io/File;JI)Z
+
+    move-result v6
+
+    if-nez v6, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    const-string v0, "TbsShareManager"
+
+    .line 837
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "find host backup core to unzip normal coreVersion is "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v2, " packageName is "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 838
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0, v5, p1}, Lcom/tencent/smtt/sdk/m;->b(Landroid/content/Context;Ljava/io/File;I)Z
+
+    goto :goto_2
+
+    .line 843
+    :cond_2
+    invoke-static {p0, v4}, Lcom/tencent/smtt/sdk/TbsShareManager;->getBackupDecoupleCoreVersion(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v5
+
+    if-ne p1, v5, :cond_5
+
+    .line 845
+    invoke-static {p0, v4, v2}, Lcom/tencent/smtt/sdk/TbsShareManager;->getPackageContext(Landroid/content/Context;Ljava/lang/String;Z)Landroid/content/Context;
+
+    move-result-object v5
+
+    .line 846
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v5}, Lcom/tencent/smtt/sdk/m;->f(Landroid/content/Context;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_3
+
+    goto :goto_1
+
+    .line 850
+    :cond_3
+    invoke-static {p0, v4}, Lcom/tencent/smtt/sdk/TbsShareManager;->getBackupDecoupleCoreFile(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v5
+
+    .line 852
+    invoke-static {p0, v5, v6, v7, p1}, Lcom/tencent/smtt/utils/a;->a(Landroid/content/Context;Ljava/io/File;JI)Z
+
+    move-result v6
+
+    if-nez v6, :cond_4
+
+    goto :goto_1
+
+    :cond_4
+    const-string v0, "TbsShareManager"
+
+    .line 857
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "find host backup core to unzip decouple coreVersion is "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v2, " packageName is "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 858
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0, v5, p1}, Lcom/tencent/smtt/sdk/m;->b(Landroid/content/Context;Ljava/io/File;I)Z
+
+    goto :goto_2
+
+    :cond_5
+    :goto_1
+    add-int/lit8 v3, v3, 0x1
+
+    goto/16 :goto_0
+
+    .line 862
+    :cond_6
+    :goto_2
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Lcom/tencent/smtt/sdk/m;->b()V
+
+    :cond_7
+    return-void
+.end method
+
+.method private static a(Landroid/content/Context;Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;Ljava/io/File;)V
+    .locals 5
+
+    const-string v0, "TbsShareManager"
+
+    const-string v1, "shareAllDirsAndFiles #1"
+
+    .line 65
+    invoke-static {v0, v1}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    if-eqz p2, :cond_5
+
+    .line 66
+    invoke-virtual {p2}, Ljava/io/File;->exists()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    invoke-virtual {p2}, Ljava/io/File;->isDirectory()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    goto :goto_2
+
+    :cond_0
+    const-string v0, "TbsShareManager"
+
+    .line 69
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "shareAllDirsAndFiles dir is "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 70
+    invoke-virtual {p2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "755"
+
+    invoke-virtual {p1, v0, v1}, Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;->a(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 71
+    invoke-virtual {p2}, Ljava/io/File;->listFiles()[Ljava/io/File;
+
+    move-result-object p2
+
+    array-length v0, p2
+
+    const/4 v1, 0x0
+
+    :goto_0
+    if-ge v1, v0, :cond_4
+
+    aget-object v2, p2, v1
+
+    .line 72
+    invoke-virtual {v2}, Ljava/io/File;->isFile()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    .line 73
+    invoke-virtual {v2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string v4, ".so"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+
+    move-result v3
+
+    if-lez v3, :cond_1
+
+    .line 74
+    invoke-virtual {v2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, "755"
+
+    invoke-virtual {p1, v2, v3}, Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;->a(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    .line 76
+    :cond_1
+    invoke-virtual {v2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, "644"
+
+    invoke-virtual {p1, v2, v3}, Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;->a(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    .line 78
+    :cond_2
+    invoke-virtual {v2}, Ljava/io/File;->isDirectory()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    .line 79
+    invoke-static {p0, p1, v2}, Lcom/tencent/smtt/sdk/TbsShareManager;->a(Landroid/content/Context;Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;Ljava/io/File;)V
+
+    goto :goto_1
+
+    :cond_3
+    const-string v2, "TbsShareManager"
+
+    const-string/jumbo v3, "unknown file type."
+
+    const/4 v4, 0x1
+
+    .line 81
+    invoke-static {v2, v3, v4}, Lcom/tencent/smtt/utils/TbsLog;->e(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    :goto_1
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_4
+    return-void
+
+    :cond_5
+    :goto_2
+    return-void
+.end method
+
+.method static b(Landroid/content/Context;)V
+    .locals 2
+
+    .line 56
+    :try_start_0
+    new-instance v0, Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;
+
+    invoke-direct {v0, p0}, Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;-><init>(Landroid/content/Context;)V
+
+    .line 57
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Lcom/tencent/smtt/sdk/m;->p(Landroid/content/Context;)Ljava/io/File;
+
+    move-result-object v1
+
+    .line 58
+    invoke-static {p0, v0, v1}, Lcom/tencent/smtt/sdk/TbsShareManager;->a(Landroid/content/Context;Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;Ljava/io/File;)V
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p0
+
+    .line 60
+    invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+
+    :goto_0
+    return-void
+.end method
+
+.method static b(Landroid/content/Context;Z)Z
+    .locals 1
+
+    .line 1418
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/TbsShareManager;->i(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :cond_0
+    if-eqz p1, :cond_1
+
+    const-string p1, "TbsShareManager::isShareTbsCoreAvailable forceSysWebViewInner!"
+
+    .line 1424
+    invoke-static {p0, p1}, Lcom/tencent/smtt/sdk/QbSdk;->a(Landroid/content/Context;Ljava/lang/String;)V
+
+    :cond_1
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method static c(Landroid/content/Context;)Ljava/lang/String;
+    .locals 0
+
+    .line 297
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/TbsShareManager;->j(Landroid/content/Context;)Z
+
+    .line 300
+    sget-object p0, Lcom/tencent/smtt/sdk/TbsShareManager;->d:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method private static c(Landroid/content/Context;Z)V
+    .locals 6
+
+    const/4 v0, 0x0
+
+    :try_start_0
+    const-string v1, "core_info"
+
+    .line 495
+    invoke-static {p0, v1}, Lcom/tencent/smtt/sdk/TbsShareManager;->getTbsShareFile(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    return-void
+
+    .line 502
+    :cond_0
+    new-instance v2, Ljava/io/FileInputStream;
+
+    invoke-direct {v2, v1}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+
+    .line 503
+    new-instance v3, Ljava/io/BufferedInputStream;
+
+    invoke-direct {v3, v2}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;)V
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_3
+    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+
+    .line 504
+    :try_start_1
+    new-instance v2, Ljava/util/Properties;
+
+    invoke-direct {v2}, Ljava/util/Properties;-><init>()V
+
+    .line 505
+    invoke-virtual {v2, v3}, Ljava/util/Properties;->load(Ljava/io/InputStream;)V
+
+    const-string v4, "core_disabled"
+
+    const/4 v5, 0x0
+
+    .line 506
+    invoke-static {v5}, Ljava/lang/String;->valueOf(Z)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v2, v4, v5}, Ljava/util/Properties;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
+
+    if-eqz p1, :cond_1
+
+    .line 509
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object p1
+
+    invoke-virtual {p1, p0}, Lcom/tencent/smtt/sdk/m;->q(Landroid/content/Context;)Ljava/io/File;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object p1
+
+    .line 510
+    invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v4
+
+    .line 511
+    invoke-static {p0}, Lcom/tencent/smtt/utils/b;->b(Landroid/content/Context;)I
+
+    move-result p0
+
+    const-string v5, "core_packagename"
+
+    .line 513
+    invoke-virtual {v2, v5, v4}, Ljava/util/Properties;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
+
+    const-string v4, "core_path"
+
+    .line 514
+    invoke-virtual {v2, v4, p1}, Ljava/util/Properties;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
+
+    const-string p1, "app_version"
+
+    .line 515
+    invoke-static {p0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v2, p1, p0}, Ljava/util/Properties;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
+
+    .line 518
+    :cond_1
+    new-instance p0, Ljava/io/FileOutputStream;
+
+    invoke-direct {p0, v1}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
+
+    .line 519
+    new-instance p1, Ljava/io/BufferedOutputStream;
+
+    invoke-direct {p1, p0}, Ljava/io/BufferedOutputStream;-><init>(Ljava/io/OutputStream;)V
+    :try_end_1
+    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_2
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    .line 520
+    :try_start_2
+    invoke-virtual {v2, p1, v0}, Ljava/util/Properties;->store(Ljava/io/OutputStream;Ljava/lang/String;)V
+    :try_end_2
+    .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    .line 532
+    :try_start_3
+    invoke-virtual {v3}, Ljava/io/BufferedInputStream;->close()V
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+
+    .line 540
+    :catch_0
+    :goto_0
+    :try_start_4
+    invoke-virtual {p1}, Ljava/io/BufferedOutputStream;->close()V
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_5
+
+    goto :goto_3
+
+    :catchall_0
+    move-exception p0
+
+    goto :goto_4
+
+    :catch_1
+    move-exception p0
+
+    goto :goto_1
+
+    :catchall_1
+    move-exception p0
+
+    goto :goto_5
+
+    :catch_2
+    move-exception p0
+
+    move-object p1, v0
+
+    :goto_1
+    move-object v0, v3
+
+    goto :goto_2
+
+    :catchall_2
+    move-exception p0
+
+    move-object v3, v0
+
+    goto :goto_5
+
+    :catch_3
+    move-exception p0
+
+    move-object p1, v0
+
+    .line 525
+    :goto_2
+    :try_start_5
+    invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_3
+
+    if-eqz v0, :cond_2
+
+    .line 532
+    :try_start_6
+    invoke-virtual {v0}, Ljava/io/BufferedInputStream;->close()V
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_4
+
+    :catch_4
+    :cond_2
+    if-eqz p1, :cond_3
+
+    goto :goto_0
+
+    :catch_5
+    :cond_3
+    :goto_3
+    return-void
+
+    :catchall_3
+    move-exception p0
+
+    move-object v3, v0
+
+    :goto_4
+    move-object v0, p1
+
+    :goto_5
+    if-eqz v3, :cond_4
+
+    :try_start_7
+    invoke-virtual {v3}, Ljava/io/BufferedInputStream;->close()V
+    :try_end_7
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_6
+
+    :catch_6
+    :cond_4
+    if-eqz v0, :cond_5
+
+    .line 540
+    :try_start_8
+    invoke-virtual {v0}, Ljava/io/BufferedOutputStream;->close()V
+    :try_end_8
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_7
+
+    .line 544
+    :catch_7
+    :cond_5
+    throw p0
+.end method
+
+.method static d(Landroid/content/Context;)I
+    .locals 1
+
+    const/4 v0, 0x1
+
+    .line 310
+    invoke-static {p0, v0}, Lcom/tencent/smtt/sdk/TbsShareManager;->a(Landroid/content/Context;Z)I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method private static d(Landroid/content/Context;Z)[Ljava/lang/String;
+    .locals 3
+
+    .line 797
+    invoke-static {}, Lcom/tencent/smtt/sdk/QbSdk;->getOnlyDownload()Z
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x1
+
+    if-eqz v0, :cond_0
+
+    .line 799
+    new-array p1, v2, [Ljava/lang/String;
+
+    invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object p0
+
+    aput-object p0, p1, v1
+
+    goto :goto_0
+
+    .line 803
+    :cond_0
+    invoke-static {}, Lcom/tencent/smtt/sdk/TbsShareManager;->getCoreProviderAppList()[Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz p1, :cond_1
+
+    .line 807
+    new-array p1, v2, [Ljava/lang/String;
+
+    invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object p0
+
+    aput-object p0, p1, v1
+
+    goto :goto_0
+
+    :cond_1
+    move-object p1, v0
+
+    :goto_0
+    return-object p1
+.end method
+
+.method static e(Landroid/content/Context;)Landroid/content/Context;
+    .locals 3
+
+    .line 324
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/TbsShareManager;->j(Landroid/content/Context;)Z
+
+    .line 325
+    sget-object v0, Lcom/tencent/smtt/sdk/TbsShareManager;->f:Ljava/lang/String;
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_1
+
+    const/4 v2, 0x1
+
+    .line 326
+    invoke-static {p0, v0, v2}, Lcom/tencent/smtt/sdk/TbsShareManager;->getPackageContext(Landroid/content/Context;Ljava/lang/String;Z)Landroid/content/Context;
+
+    move-result-object p0
+
+    .line 327
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Lcom/tencent/smtt/sdk/m;->f(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    move-object v1, p0
+
+    .line 332
+    :cond_1
+    :goto_0
+    sget-object p0, Lcom/tencent/smtt/sdk/TbsShareManager;->c:Ljava/lang/String;
+
+    if-eqz p0, :cond_2
+
+    .line 333
+    sget-object p0, Lcom/tencent/smtt/sdk/TbsShareManager;->a:Landroid/content/Context;
+
+    return-object p0
+
+    :cond_2
+    return-object v1
+.end method
+
+.method static declared-synchronized f(Landroid/content/Context;)Ljava/lang/String;
+    .locals 6
+
+    const-class v0, Lcom/tencent/smtt/sdk/TbsShareManager;
+
+    monitor-enter v0
+
+    const/4 v1, 0x0
+
+    :try_start_0
+    const-string v2, "core_info"
+
+    .line 968
+    invoke-static {p0, v2}, Lcom/tencent/smtt/sdk/TbsShareManager;->getTbsShareFile(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object p0
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_3
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-nez p0, :cond_0
+
+    .line 999
+    monitor-exit v0
+
+    return-object v1
+
+    .line 974
+    :cond_0
+    :try_start_1
+    new-instance v2, Ljava/io/FileInputStream;
+
+    invoke-direct {v2, p0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+
+    .line 975
+    new-instance p0, Ljava/io/BufferedInputStream;
+
+    invoke-direct {p0, v2}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;)V
+    :try_end_1
+    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_3
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    .line 976
+    :try_start_2
+    new-instance v2, Ljava/util/Properties;
+
+    invoke-direct {v2}, Ljava/util/Properties;-><init>()V
+
+    .line 977
+    invoke-virtual {v2, p0}, Ljava/util/Properties;->load(Ljava/io/InputStream;)V
+
+    const-string v3, "core_packagename"
+
+    const-string v4, ""
+
+    .line 979
+    invoke-virtual {v2, v3, v4}, Ljava/util/Properties;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, ""
+
+    .line 980
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+    :try_end_2
+    .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+
+    if-nez v3, :cond_1
+
+    .line 995
+    :try_start_3
+    invoke-virtual {p0}, Ljava/io/BufferedInputStream;->close()V
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+
+    .line 999
+    :catch_0
+    monitor-exit v0
+
+    return-object v2
+
+    .line 995
+    :cond_1
+    :try_start_4
+    invoke-virtual {p0}, Ljava/io/BufferedInputStream;->close()V
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+
+    .line 999
+    :catch_1
+    monitor-exit v0
+
+    return-object v1
+
+    :catch_2
+    move-exception v2
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception p0
+
+    move-object v5, v1
+
+    move-object v1, p0
+
+    move-object p0, v5
+
+    goto :goto_2
+
+    :catch_3
+    move-exception v2
+
+    move-object p0, v1
+
+    .line 988
+    :goto_0
+    :try_start_5
+    invoke-virtual {v2}, Ljava/lang/Throwable;->printStackTrace()V
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_2
+
+    if-eqz p0, :cond_2
+
+    .line 995
+    :try_start_6
+    invoke-virtual {p0}, Ljava/io/BufferedInputStream;->close()V
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_4
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+
+    goto :goto_1
+
+    :catchall_1
+    move-exception p0
+
+    goto :goto_3
+
+    .line 1002
+    :catch_4
+    :cond_2
+    :goto_1
+    monitor-exit v0
+
+    return-object v1
+
+    :catchall_2
+    move-exception v1
+
+    :goto_2
+    if-eqz p0, :cond_3
+
+    .line 995
+    :try_start_7
+    invoke-virtual {p0}, Ljava/io/BufferedInputStream;->close()V
+    :try_end_7
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_5
+    .catchall {:try_start_7 .. :try_end_7} :catchall_1
+
+    .line 999
+    :catch_5
+    :cond_3
+    :try_start_8
+    throw v1
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_1
+
+    :goto_3
+    monitor-exit v0
+
+    throw p0
+.end method
+
+.method public static findCoreForThirdPartyApp(Landroid/content/Context;)I
+    .locals 6
+
+    .line 421
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/TbsShareManager;->n(Landroid/content/Context;)V
+
+    const-string v0, "TbsShareManager"
+
+    .line 423
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "core_info mAvailableCoreVersion is "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget v2, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v2, " mAvailableCorePath is "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget-object v2, Lcom/tencent/smtt/sdk/TbsShareManager;->d:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v2, " mSrcPackageName is "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget-object v2, Lcom/tencent/smtt/sdk/TbsShareManager;->f:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 427
+    sget-object v0, Lcom/tencent/smtt/sdk/TbsShareManager;->f:Ljava/lang/String;
+
+    if-nez v0, :cond_0
+
+    const-string v0, "TbsShareManager"
+
+    const-string v1, "mSrcPackageName is null !!!"
+
+    .line 429
+    invoke-static {v0, v1}, Lcom/tencent/smtt/utils/TbsLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 432
+    :cond_0
+    sget-object v0, Lcom/tencent/smtt/sdk/TbsShareManager;->f:Ljava/lang/String;
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x0
+
+    if-eqz v0, :cond_1
+
+    const-string v3, "AppDefined"
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 434
+    sget v0, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v3
+
+    sget-object v4, Lcom/tencent/smtt/sdk/TbsShareManager;->c:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Lcom/tencent/smtt/sdk/m;->a(Ljava/lang/String;)I
+
+    move-result v3
+
+    if-eq v0, v3, :cond_2
+
+    .line 436
+    sput v1, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    .line 437
+    sput-object v2, Lcom/tencent/smtt/sdk/TbsShareManager;->d:Ljava/lang/String;
+
+    .line 438
+    sput-object v2, Lcom/tencent/smtt/sdk/TbsShareManager;->f:Ljava/lang/String;
+
+    const-string v0, "TbsShareManager"
+
+    .line 439
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "check AppDefined core is error src is "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget v4, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v4, " dest is "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v4
+
+    sget-object v5, Lcom/tencent/smtt/sdk/TbsShareManager;->c:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Lcom/tencent/smtt/sdk/m;->a(Ljava/lang/String;)I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v0, v3}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    .line 444
+    :cond_1
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/TbsShareManager;->k(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    .line 445
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/TbsShareManager;->l(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    .line 446
+    sput v1, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    .line 447
+    sput-object v2, Lcom/tencent/smtt/sdk/TbsShareManager;->d:Ljava/lang/String;
+
+    .line 448
+    sput-object v2, Lcom/tencent/smtt/sdk/TbsShareManager;->f:Ljava/lang/String;
+
+    const-string v0, "TbsShareManager"
+
+    const-string v3, "core_info error checkCoreInfo is false and checkCoreInOthers is false "
+
+    .line 449
+    invoke-static {v0, v3}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 454
+    :cond_2
+    :goto_0
+    sget v0, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    if-lez v0, :cond_7
+
+    const-string v0, "com.tencent.android.qqdownloader"
+
+    const-string v3, "com.jd.jrapp"
+
+    .line 458
+    invoke-virtual {p0}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v4
+
+    .line 460
+    iget-object v5, v4, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_4
+
+    iget-object v0, v4, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    goto :goto_1
+
+    :cond_3
+    const/4 v0, 0x0
+
+    goto :goto_2
+
+    :cond_4
+    :goto_1
+    const/4 v0, 0x1
+
+    :goto_2
+    if-nez v0, :cond_5
+
+    .line 464
+    sget v0, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    invoke-static {p0, v0}, Lcom/tencent/smtt/sdk/QbSdk;->a(Landroid/content/Context;I)Z
+
+    move-result p0
+
+    goto :goto_3
+
+    :cond_5
+    const/4 p0, 0x0
+
+    :goto_3
+    if-nez p0, :cond_6
+
+    .line 467
+    sget-boolean p0, Lcom/tencent/smtt/sdk/TbsShareManager;->g:Z
+
+    if-eqz p0, :cond_7
+
+    .line 468
+    :cond_6
+    sput v1, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    .line 469
+    sput-object v2, Lcom/tencent/smtt/sdk/TbsShareManager;->d:Ljava/lang/String;
+
+    .line 470
+    sput-object v2, Lcom/tencent/smtt/sdk/TbsShareManager;->f:Ljava/lang/String;
+
+    const-string p0, "TbsShareManager"
+
+    const-string v0, "core_info error QbSdk.isX5Disabled "
+
+    .line 471
+    invoke-static {p0, v0}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 476
+    :cond_7
+    sget p0, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    return p0
+.end method
+
+.method public static forceLoadX5FromTBSDemo(Landroid/content/Context;)Z
+    .locals 5
+
+    const/4 v0, 0x0
+
+    if-eqz p0, :cond_2
+
+    .line 554
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, p0, v2}, Lcom/tencent/smtt/sdk/m;->a(Landroid/content/Context;[Ljava/io/File;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const-string v1, "com.tencent.tbs"
+
+    .line 556
+    invoke-static {p0, v1}, Lcom/tencent/smtt/sdk/TbsShareManager;->getSharedTbsCoreVersion(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v1
+
+    if-lez v1, :cond_1
+
+    const-string v0, "com.tencent.tbs"
+
+    const/4 v2, 0x1
+
+    .line 558
+    invoke-static {p0, v0, v2}, Lcom/tencent/smtt/sdk/TbsShareManager;->getPackageContext(Landroid/content/Context;Ljava/lang/String;Z)Landroid/content/Context;
+
+    move-result-object v0
+
+    .line 559
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Lcom/tencent/smtt/sdk/m;->q(Landroid/content/Context;)Ljava/io/File;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 560
+    invoke-static {v1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v3, "com.tencent.tbs"
+
+    const-string v4, "1"
+
+    invoke-static {p0, v1, v3, v0, v4}, Lcom/tencent/smtt/sdk/TbsShareManager;->writeProperties(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    return v2
+
+    :cond_1
+    return v0
+
+    :cond_2
+    :goto_0
+    return v0
+.end method
+
+.method public static forceToLoadX5ForThirdApp(Landroid/content/Context;Z)V
+    .locals 11
+
+    .line 1159
+    :try_start_0
+    invoke-static {}, Lcom/tencent/smtt/sdk/QbSdk;->isNeedInitX5FirstTime()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    .line 1162
+    :cond_0
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/TbsShareManager;->isThirdPartyApp(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    return-void
+
+    .line 1165
+    :cond_1
+    invoke-static {}, Lcom/tencent/smtt/sdk/QbSdk;->getOnlyDownload()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    return-void
+
+    .line 1170
+    :cond_2
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Lcom/tencent/smtt/sdk/m;->r(Landroid/content/Context;)Ljava/io/File;
+
+    move-result-object v0
+
+    if-nez v0, :cond_3
+
+    return-void
+
+    :cond_3
+    if-eqz p1, :cond_4
+
+    .line 1176
+    new-instance p1, Ljava/io/File;
+
+    const-string v1, "core_info"
+
+    invoke-direct {p1, v0, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    .line 1177
+    invoke-virtual {p1}, Ljava/io/File;->exists()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_4
+
+    return-void
+
+    .line 1182
+    :cond_4
+    sget-object p1, Lcom/tencent/smtt/sdk/TbsShareManager;->c:Ljava/lang/String;
+
+    const/4 v0, 0x1
+
+    if-eqz p1, :cond_5
+
+    .line 1184
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object p1
+
+    sget-object v1, Lcom/tencent/smtt/sdk/TbsShareManager;->c:Ljava/lang/String;
+
+    invoke-virtual {p1, v1}, Lcom/tencent/smtt/sdk/m;->a(Ljava/lang/String;)I
+
+    move-result p1
+
+    if-lez p1, :cond_5
+
+    .line 1187
+    sget-object v1, Lcom/tencent/smtt/sdk/TbsShareManager;->c:Ljava/lang/String;
+
+    sput-object v1, Lcom/tencent/smtt/sdk/TbsShareManager;->d:Ljava/lang/String;
+
+    const-string v1, "AppDefined"
+
+    .line 1188
+    sput-object v1, Lcom/tencent/smtt/sdk/TbsShareManager;->f:Ljava/lang/String;
+
+    .line 1189
+    sput p1, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    const-string p1, "TbsShareManager"
+
+    .line 1191
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "forceToLoadX5ForThirdApp #1 -- mAvailableCoreVersion: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget v2, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v2, " "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    new-instance v2, Ljava/lang/Throwable;
+
+    const-string v3, "#"
+
+    invoke-direct {v2, v3}, Ljava/lang/Throwable;-><init>(Ljava/lang/String;)V
+
+    invoke-static {v2}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {p1, v1}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 1193
+    sget p1, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object p1
+
+    sget-object v1, Lcom/tencent/smtt/sdk/TbsShareManager;->f:Ljava/lang/String;
+
+    sget-object v2, Lcom/tencent/smtt/sdk/TbsShareManager;->d:Ljava/lang/String;
+
+    invoke-static {v0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p0, p1, v1, v2, v0}, Lcom/tencent/smtt/sdk/TbsShareManager;->writeProperties(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+
+    :cond_5
+    const-string p1, "TbsShareManager"
+
+    const-string v1, "forceToLoadX5ForThirdApp #1"
+
+    .line 1198
+    invoke-static {p1, v1}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 1200
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/TbsShareManager;->h(Landroid/content/Context;)I
+
+    move-result p1
+
+    .line 1201
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Lcom/tencent/smtt/sdk/m;->i(Landroid/content/Context;)I
+
+    move-result v1
+
+    const-string v2, "TbsShareManager"
+
+    .line 1202
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "forceToLoadX5ForThirdApp coreVersionFromConfig is "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v2, "TbsShareManager"
+
+    .line 1203
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "forceToLoadX5ForThirdApp coreVersionFromCoreShare is "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 1205
+    invoke-static {}, Lcom/tencent/smtt/sdk/TbsShareManager;->getCoreProviderAppList()[Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 1208
+    array-length v3, v2
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    :goto_0
+    const/4 v6, 0x0
+
+    if-ge v5, v3, :cond_9
+
+    aget-object v7, v2, v5
+
+    .line 1209
+    invoke-static {p0, v7}, Lcom/tencent/smtt/sdk/TbsShareManager;->getCoreShareDecoupleCoreVersion(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v8
+
+    if-lt v8, p1, :cond_8
+
+    if-ge v8, v1, :cond_6
+
+    goto :goto_1
+
+    :cond_6
+    if-lez v8, :cond_8
+
+    .line 1217
+    invoke-static {p0, v7, v0}, Lcom/tencent/smtt/sdk/TbsShareManager;->getPackageContext(Landroid/content/Context;Ljava/lang/String;Z)Landroid/content/Context;
+
+    move-result-object v9
+
+    .line 1218
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v10
+
+    invoke-virtual {v10, p0, v9}, Lcom/tencent/smtt/sdk/m;->c(Landroid/content/Context;Landroid/content/Context;)Ljava/io/File;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v9
+
+    sput-object v9, Lcom/tencent/smtt/sdk/TbsShareManager;->d:Ljava/lang/String;
+
+    .line 1219
+    sput-object v7, Lcom/tencent/smtt/sdk/TbsShareManager;->f:Ljava/lang/String;
+
+    .line 1220
+    sput v8, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    const-string v7, "TbsShareManager"
+
+    .line 1222
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v9, "forceToLoadX5ForThirdApp #2 -- mAvailableCoreVersion: "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget v9, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v9, " "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    new-instance v9, Ljava/lang/Throwable;
+
+    const-string v10, "#"
+
+    invoke-direct {v9, v10}, Ljava/lang/Throwable;-><init>(Ljava/lang/String;)V
+
+    invoke-static {v9}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 1224
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/QbSdk;->canLoadX5FirstTimeThirdApp(Landroid/content/Context;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_7
+
+    .line 1225
+    invoke-static {p0}, Lcom/tencent/smtt/utils/b;->b(Landroid/content/Context;)I
+
+    move-result p1
+
+    const-string v0, "TbsShareManager"
+
+    const-string v1, "forceToLoadX5ForThirdApp #2"
+
+    .line 1227
+    invoke-static {v0, v1}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 1228
+    sget v0, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    invoke-static {v0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/tencent/smtt/sdk/TbsShareManager;->f:Ljava/lang/String;
+
+    sget-object v2, Lcom/tencent/smtt/sdk/TbsShareManager;->d:Ljava/lang/String;
+
+    invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {p0, v0, v1, v2, p1}, Lcom/tencent/smtt/sdk/TbsShareManager;->writeProperties(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+
+    .line 1232
+    :cond_7
+    sput v4, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    .line 1233
+    sput-object v6, Lcom/tencent/smtt/sdk/TbsShareManager;->d:Ljava/lang/String;
+
+    .line 1234
+    sput-object v6, Lcom/tencent/smtt/sdk/TbsShareManager;->f:Ljava/lang/String;
+
+    :cond_8
+    :goto_1
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_0
+
+    .line 1240
+    :cond_9
+    array-length v3, v2
+
+    const/4 v5, 0x0
+
+    :goto_2
+    if-ge v5, v3, :cond_d
+
+    aget-object v7, v2, v5
+
+    .line 1241
+    invoke-static {p0, v7}, Lcom/tencent/smtt/sdk/TbsShareManager;->getSharedTbsCoreVersion(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v8
+
+    if-lt v8, p1, :cond_c
+
+    if-ge v8, v1, :cond_a
+
+    goto :goto_3
+
+    :cond_a
+    if-lez v8, :cond_c
+
+    .line 1249
+    invoke-static {p0, v7, v0}, Lcom/tencent/smtt/sdk/TbsShareManager;->getPackageContext(Landroid/content/Context;Ljava/lang/String;Z)Landroid/content/Context;
+
+    move-result-object v9
+
+    .line 1250
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v10
+
+    invoke-virtual {v10, p0, v9}, Lcom/tencent/smtt/sdk/m;->b(Landroid/content/Context;Landroid/content/Context;)Ljava/io/File;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v9
+
+    sput-object v9, Lcom/tencent/smtt/sdk/TbsShareManager;->d:Ljava/lang/String;
+
+    .line 1251
+    sput-object v7, Lcom/tencent/smtt/sdk/TbsShareManager;->f:Ljava/lang/String;
+
+    .line 1252
+    sput v8, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    const-string v7, "TbsShareManager"
+
+    .line 1254
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v9, "forceToLoadX5ForThirdApp #3 -- mAvailableCoreVersion: "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget v9, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v9, " "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    new-instance v9, Ljava/lang/Throwable;
+
+    const-string v10, "#"
+
+    invoke-direct {v9, v10}, Ljava/lang/Throwable;-><init>(Ljava/lang/String;)V
+
+    invoke-static {v9}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 1256
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/QbSdk;->canLoadX5FirstTimeThirdApp(Landroid/content/Context;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_b
+
+    .line 1257
+    invoke-static {p0}, Lcom/tencent/smtt/utils/b;->b(Landroid/content/Context;)I
+
+    move-result p1
+
+    .line 1258
+    sget v0, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    invoke-static {v0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/tencent/smtt/sdk/TbsShareManager;->f:Ljava/lang/String;
+
+    sget-object v2, Lcom/tencent/smtt/sdk/TbsShareManager;->d:Ljava/lang/String;
+
+    invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {p0, v0, v1, v2, p1}, Lcom/tencent/smtt/sdk/TbsShareManager;->writeProperties(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+
+    .line 1261
+    :cond_b
+    sput v4, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    .line 1262
+    sput-object v6, Lcom/tencent/smtt/sdk/TbsShareManager;->d:Ljava/lang/String;
+
+    .line 1263
+    sput-object v6, Lcom/tencent/smtt/sdk/TbsShareManager;->f:Ljava/lang/String;
+
+    :cond_c
+    :goto_3
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_2
+
+    .line 1268
+    :cond_d
+    sget-object v0, Lcom/tencent/smtt/sdk/TbsShareManager;->a:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/tencent/smtt/sdk/TbsPVConfig;->getInstance(Landroid/content/Context;)Lcom/tencent/smtt/sdk/TbsPVConfig;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/tencent/smtt/sdk/TbsPVConfig;->isDisableHostBackupCore()Z
+
+    move-result v0
+
+    if-nez v0, :cond_13
+
+    .line 1270
+    invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/os/Looper;->getThread()Ljava/lang/Thread;
+
+    move-result-object v3
+
+    if-eq v0, v3, :cond_12
+
+    .line 1272
+    array-length v0, v2
+
+    :goto_4
+    if-ge v4, v0, :cond_13
+
+    aget-object v3, v2, v4
+
+    .line 1273
+    invoke-static {p0, v3}, Lcom/tencent/smtt/sdk/TbsShareManager;->getBackupCoreVersion(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v5
+
+    if-lt v5, p1, :cond_f
+
+    if-ge v5, v1, :cond_e
+
+    goto :goto_5
+
+    :cond_e
+    if-lez v5, :cond_f
+
+    const-string p1, "TbsShareManager"
+
+    .line 1283
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "find host backup core to unzip forceload coreVersion is "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, " packageName is "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p1, v0}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 1284
+    invoke-static {p0, v3}, Lcom/tencent/smtt/sdk/TbsShareManager;->getBackupCoreFile(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object p1
+
+    .line 1285
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0, p1, v5}, Lcom/tencent/smtt/sdk/m;->a(Landroid/content/Context;Ljava/io/File;I)V
+
+    const-string p0, "TbsShareManager"
+
+    const-string p1, "find host backup core to unzip forceload after unzip "
+
+    .line 1286
+    invoke-static {p0, p1}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+
+    .line 1292
+    :cond_f
+    :goto_5
+    invoke-static {p0, v3}, Lcom/tencent/smtt/sdk/TbsShareManager;->getBackupDecoupleCoreVersion(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v5
+
+    if-lt v5, p1, :cond_11
+
+    if-ge v5, v1, :cond_10
+
+    goto :goto_6
+
+    :cond_10
+    if-lez v5, :cond_11
+
+    const-string p1, "TbsShareManager"
+
+    .line 1301
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "find host backup core to unzip forceload decouple coreVersion is "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, " packageName is "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p1, v0}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 1302
+    invoke-static {p0, v3}, Lcom/tencent/smtt/sdk/TbsShareManager;->getBackupCoreFile(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object p1
+
+    .line 1303
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0, p1, v5}, Lcom/tencent/smtt/sdk/m;->a(Landroid/content/Context;Ljava/io/File;I)V
+
+    const-string p0, "TbsShareManager"
+
+    const-string p1, "find host backup decouple core to unzip forceload after unzip "
+
+    .line 1304
+    invoke-static {p0, p1}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+
+    :cond_11
+    :goto_6
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_4
+
+    :cond_12
+    const-string p0, "TbsShareManager"
+
+    const-string p1, "in mainthread so do not find host backup core to install "
+
+    .line 1314
+    invoke-static {p0, p1}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :catch_0
+    :cond_13
+    return-void
+.end method
+
+.method static g(Landroid/content/Context;)Ljava/lang/String;
+    .locals 4
+
+    const/4 v0, 0x0
+
+    .line 1010
+    :try_start_0
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/TbsShareManager;->n(Landroid/content/Context;)V
+
+    .line 1012
+    sget-object p0, Lcom/tencent/smtt/sdk/TbsShareManager;->d:Ljava/lang/String;
+
+    if-eqz p0, :cond_1
+
+    sget-object p0, Lcom/tencent/smtt/sdk/TbsShareManager;->d:Ljava/lang/String;
+
+    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    goto :goto_0
+
+    .line 1016
+    :cond_0
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    sget-object v1, Lcom/tencent/smtt/sdk/TbsShareManager;->d:Ljava/lang/String;
+
+    invoke-direct {p0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    .line 1017
+    sget-object v1, Ljava/io/File;->separator:Ljava/lang/String;
+
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, "res.apk"
+
+    .line 1018
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    .line 1024
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_1
+    :goto_0
+    return-object v0
+
+    :catch_0
+    move-exception p0
+
+    const-string v1, ""
+
+    .line 1020
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "getTbsResourcesPath exception: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {p0}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {v1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-object v0
+.end method
+
+.method public static getBackupCoreFile(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
+    .locals 2
+
+    const/4 v0, 0x0
+
+    .line 247
+    :try_start_0
+    invoke-static {p0, p1, v0}, Lcom/tencent/smtt/sdk/TbsShareManager;->getPackageContext(Landroid/content/Context;Ljava/lang/String;Z)Landroid/content/Context;
+
+    move-result-object p0
+
+    .line 248
+    new-instance p1, Ljava/io/File;
+
+    const/4 v1, 0x4
+
+    invoke-static {p0, v1}, Lcom/tencent/smtt/utils/f;->a(Landroid/content/Context;I)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {p1, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    .line 249
+    new-instance p0, Ljava/io/File;
+
+    invoke-static {v0}, Lcom/tencent/smtt/sdk/TbsDownloader;->getBackupFileName(Z)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, p1, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    .line 250
+    invoke-virtual {p0}, Ljava/io/File;->exists()Z
+
+    move-result p1
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    if-eqz p1, :cond_0
+
+    return-object p0
+
+    :catch_0
+    :cond_0
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public static getBackupCoreVersion(Landroid/content/Context;Ljava/lang/String;)I
+    .locals 2
+
+    const/4 v0, 0x0
+
+    .line 211
+    :try_start_0
+    invoke-static {p0, p1, v0}, Lcom/tencent/smtt/sdk/TbsShareManager;->getPackageContext(Landroid/content/Context;Ljava/lang/String;Z)Landroid/content/Context;
+
+    move-result-object p0
+
+    .line 212
+    new-instance p1, Ljava/io/File;
+
+    const/4 v1, 0x4
+
+    invoke-static {p0, v1}, Lcom/tencent/smtt/utils/f;->a(Landroid/content/Context;I)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {p1, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    .line 213
+    new-instance p0, Ljava/io/File;
+
+    invoke-static {v0}, Lcom/tencent/smtt/sdk/TbsDownloader;->getBackupFileName(Z)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {p0, p1, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    .line 214
+    invoke-virtual {p0}, Ljava/io/File;->exists()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    .line 215
+    invoke-static {p0}, Lcom/tencent/smtt/utils/a;->b(Ljava/io/File;)I
+
+    move-result p0
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    return p0
+
+    :catch_0
+    :cond_0
+    return v0
+.end method
+
+.method public static getBackupDecoupleCoreFile(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
+    .locals 2
+
+    const/4 v0, 0x1
+
+    .line 265
+    :try_start_0
+    invoke-static {p0, p1, v0}, Lcom/tencent/smtt/sdk/TbsShareManager;->getPackageContext(Landroid/content/Context;Ljava/lang/String;Z)Landroid/content/Context;
+
+    move-result-object p0
+
+    .line 266
+    new-instance p1, Ljava/io/File;
+
+    const/4 v1, 0x4
+
+    invoke-static {p0, v1}, Lcom/tencent/smtt/utils/f;->a(Landroid/content/Context;I)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {p1, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    .line 267
+    new-instance p0, Ljava/io/File;
+
+    invoke-static {v0}, Lcom/tencent/smtt/sdk/TbsDownloader;->getBackupFileName(Z)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, p1, v0}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    .line 268
+    invoke-virtual {p0}, Ljava/io/File;->exists()Z
+
+    move-result p1
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    if-eqz p1, :cond_0
+
+    return-object p0
+
+    :catch_0
+    :cond_0
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public static getBackupDecoupleCoreVersion(Landroid/content/Context;Ljava/lang/String;)I
+    .locals 2
+
+    const/4 v0, 0x0
+
+    .line 229
+    :try_start_0
+    invoke-static {p0, p1, v0}, Lcom/tencent/smtt/sdk/TbsShareManager;->getPackageContext(Landroid/content/Context;Ljava/lang/String;Z)Landroid/content/Context;
+
+    move-result-object p0
+
+    .line 230
+    new-instance p1, Ljava/io/File;
+
+    const/4 v1, 0x4
+
+    invoke-static {p0, v1}, Lcom/tencent/smtt/utils/f;->a(Landroid/content/Context;I)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {p1, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    .line 231
+    new-instance p0, Ljava/io/File;
+
+    const/4 v1, 0x1
+
+    invoke-static {v1}, Lcom/tencent/smtt/sdk/TbsDownloader;->getBackupFileName(Z)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {p0, p1, v1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    .line 232
+    invoke-virtual {p0}, Ljava/io/File;->exists()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    .line 233
+    invoke-static {p0}, Lcom/tencent/smtt/utils/a;->b(Ljava/io/File;)I
+
+    move-result p0
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    return p0
+
+    :catch_0
+    :cond_0
+    return v0
+.end method
+
+.method public static getCoreDisabled()Z
+    .locals 1
+
+    .line 291
+    sget-boolean v0, Lcom/tencent/smtt/sdk/TbsShareManager;->g:Z
+
+    return v0
+.end method
+
+.method public static getCoreFormOwn()Z
+    .locals 1
+
+    .line 1083
+    sget-boolean v0, Lcom/tencent/smtt/sdk/TbsShareManager;->k:Z
+
+    return v0
+.end method
+
+.method public static getCoreProviderAppList()[Ljava/lang/String;
+    .locals 5
+
+    const-string v0, "com.tencent.tbs"
+
+    const-string v1, "com.tencent.mm"
+
+    const-string v2, "com.tencent.mobileqq"
+
+    const-string v3, "com.qzone"
+
+    const-string v4, "com.tencent.qqlite"
+
+    .line 148
+    filled-new-array {v0, v1, v2, v3, v4}, [Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static getCoreShareDecoupleCoreVersion(Landroid/content/Context;Ljava/lang/String;)I
+    .locals 1
+
+    const/4 v0, 0x1
+
+    .line 194
+    invoke-static {p0, p1, v0}, Lcom/tencent/smtt/sdk/TbsShareManager;->getPackageContext(Landroid/content/Context;Ljava/lang/String;Z)Landroid/content/Context;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_0
+
+    .line 198
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object p1
+
+    invoke-virtual {p1, p0}, Lcom/tencent/smtt/sdk/m;->h(Landroid/content/Context;)I
+
+    move-result p0
+
+    return p0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public static getHostCorePathAppDefined()Ljava/lang/String;
+    .locals 1
+
+    .line 94
+    sget-object v0, Lcom/tencent/smtt/sdk/TbsShareManager;->c:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public static getHostCoreVersions(Landroid/content/Context;)J
+    .locals 9
+
+    .line 157
+    invoke-static {}, Lcom/tencent/smtt/sdk/TbsShareManager;->getCoreProviderAppList()[Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 158
+    array-length v1, v0
+
+    const-wide/16 v2, 0x0
+
+    const/4 v4, 0x0
+
+    :goto_0
+    if-ge v4, v1, :cond_3
+
+    aget-object v5, v0, v4
+
+    const-string v6, "com.tencent.mm"
+
+    .line 160
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    .line 162
+    invoke-static {p0, v5}, Lcom/tencent/smtt/sdk/TbsShareManager;->getSharedTbsCoreVersion(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v5
+
+    int-to-long v5, v5
+
+    const-wide v7, 0x2540be400L
+
+    mul-long v5, v5, v7
+
+    add-long/2addr v2, v5
+
+    goto :goto_1
+
+    :cond_0
+    const-string v6, "com.tencent.mobileqq"
+
+    .line 164
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    .line 166
+    invoke-static {p0, v5}, Lcom/tencent/smtt/sdk/TbsShareManager;->getSharedTbsCoreVersion(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v5
+
+    int-to-long v5, v5
+
+    const-wide/32 v7, 0x186a0
+
+    mul-long v5, v5, v7
+
+    add-long/2addr v2, v5
+
+    goto :goto_1
+
+    :cond_1
+    const-string v6, "com.qzone"
+
+    .line 168
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_2
+
+    .line 170
+    invoke-static {p0, v5}, Lcom/tencent/smtt/sdk/TbsShareManager;->getSharedTbsCoreVersion(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v5
+
+    int-to-long v5, v5
+
+    add-long/2addr v2, v5
+
+    :cond_2
+    :goto_1
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_0
+
+    :cond_3
+    return-wide v2
+.end method
+
+.method public static getPackageContext(Landroid/content/Context;Ljava/lang/String;Z)Landroid/content/Context;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    if-eqz p2, :cond_0
+
+    .line 1436
+    :try_start_0
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p2
+
+    if-nez p2, :cond_0
+
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/TbsPVConfig;->getInstance(Landroid/content/Context;)Lcom/tencent/smtt/sdk/TbsPVConfig;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Lcom/tencent/smtt/sdk/TbsPVConfig;->isEnableNoCoreGray()Z
+
+    move-result p2
+
+    if-eqz p2, :cond_0
+
+    const-string p0, "TbsShareManager"
+
+    const-string p1, "gray no core app,skip get context"
+
+    .line 1437
+    invoke-static {p0, p1}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-object v0
+
+    :cond_0
+    const/4 p2, 0x2
+
+    .line 1441
+    invoke-virtual {p0, p1, p2}, Landroid/content/Context;->createPackageContext(Ljava/lang/String;I)Landroid/content/Context;
+
+    move-result-object p0
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object p0
+
+    :catch_0
+    move-exception p0
+
+    .line 1451
+    invoke-virtual {p0}, Ljava/lang/Exception;->printStackTrace()V
+
+    return-object v0
+
+    :catch_1
+    return-object v0
+.end method
+
+.method public static getSharedTbsCoreVersion(Landroid/content/Context;Ljava/lang/String;)I
+    .locals 1
+
+    const/4 v0, 0x1
+
+    .line 180
+    invoke-static {p0, p1, v0}, Lcom/tencent/smtt/sdk/TbsShareManager;->getPackageContext(Landroid/content/Context;Ljava/lang/String;Z)Landroid/content/Context;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_0
+
+    .line 183
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object p1
+
+    invoke-virtual {p1, p0}, Lcom/tencent/smtt/sdk/m;->i(Landroid/content/Context;)I
+
+    move-result p0
+
+    return p0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public static getTbsShareFile(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
+    .locals 2
+
+    .line 1329
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Lcom/tencent/smtt/sdk/m;->r(Landroid/content/Context;)Ljava/io/File;
+
+    move-result-object p0
+
+    const/4 v0, 0x0
+
+    if-nez p0, :cond_0
+
+    return-object v0
+
+    .line 1332
+    :cond_0
+    new-instance v1, Ljava/io/File;
+
+    invoke-direct {v1, p0, p1}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    .line 1333
+    invoke-virtual {v1}, Ljava/io/File;->exists()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_1
+
+    return-object v1
+
+    .line 1337
+    :cond_1
+    :try_start_0
+    invoke-virtual {v1}, Ljava/io/File;->createNewFile()Z
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object v1
+
+    :catch_0
+    move-exception p0
+
+    .line 1340
+    invoke-virtual {p0}, Ljava/io/IOException;->printStackTrace()V
+
+    return-object v0
+.end method
+
+.method static declared-synchronized h(Landroid/content/Context;)I
+    .locals 6
+
+    const-class v0, Lcom/tencent/smtt/sdk/TbsShareManager;
+
+    monitor-enter v0
+
+    :try_start_0
+    const-string v1, "TbsShareManager"
+
+    const-string v2, "readCoreVersionFromConfig #1"
+
+    .line 1029
+    invoke-static {v1, v2}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+
+    const/4 v1, 0x0
+
+    :try_start_1
+    const-string v2, "core_info"
+
+    .line 1033
+    invoke-static {p0, v2}, Lcom/tencent/smtt/sdk/TbsShareManager;->getTbsShareFile(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object p0
+
+    const/4 v2, 0x0
+
+    if-nez p0, :cond_0
+
+    const-string p0, "TbsShareManager"
+
+    const-string v3, "readCoreVersionFromConfig #2"
+
+    .line 1037
+    invoke-static {p0, v3}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_1
+    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_3
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    .line 1072
+    monitor-exit v0
+
+    return v2
+
+    .line 1041
+    :cond_0
+    :try_start_2
+    new-instance v3, Ljava/io/FileInputStream;
+
+    invoke-direct {v3, p0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+
+    .line 1042
+    new-instance p0, Ljava/io/BufferedInputStream;
+
+    invoke-direct {p0, v3}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;)V
+    :try_end_2
+    .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_3
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    .line 1043
+    :try_start_3
+    new-instance v1, Ljava/util/Properties;
+
+    invoke-direct {v1}, Ljava/util/Properties;-><init>()V
+
+    .line 1044
+    invoke-virtual {v1, p0}, Ljava/util/Properties;->load(Ljava/io/InputStream;)V
+
+    const-string v3, "core_version"
+
+    const-string v4, ""
+
+    .line 1046
+    invoke-virtual {v1, v3, v4}, Ljava/util/Properties;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v3, ""
+
+    .line 1047
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    const-string v3, "TbsShareManager"
+
+    const-string v4, "readCoreVersionFromConfig #3"
+
+    .line 1049
+    invoke-static {v3, v4}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 1050
+    invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-static {v1, v2}, Ljava/lang/Math;->max(II)I
+
+    move-result v1
+    :try_end_3
+    .catch Ljava/lang/Throwable; {:try_start_3 .. :try_end_3} :catch_2
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+
+    .line 1066
+    :try_start_4
+    invoke-virtual {p0}, Ljava/io/BufferedInputStream;->close()V
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
+    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p0
+
+    .line 1071
+    :try_start_5
+    invoke-virtual {p0}, Ljava/lang/Exception;->printStackTrace()V
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_2
+
+    .line 1072
+    :goto_0
+    monitor-exit v0
+
+    return v1
+
+    :cond_1
+    :try_start_6
+    const-string v1, "TbsShareManager"
+
+    const-string v3, "readCoreVersionFromConfig #4"
+
+    .line 1054
+    invoke-static {v1, v3}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_6
+    .catch Ljava/lang/Throwable; {:try_start_6 .. :try_end_6} :catch_2
+    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+
+    .line 1066
+    :try_start_7
+    invoke-virtual {p0}, Ljava/io/BufferedInputStream;->close()V
+    :try_end_7
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_1
+    .catchall {:try_start_7 .. :try_end_7} :catchall_2
+
+    goto :goto_1
+
+    :catch_1
+    move-exception p0
+
+    .line 1071
+    :try_start_8
+    invoke-virtual {p0}, Ljava/lang/Exception;->printStackTrace()V
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_2
+
+    .line 1072
+    :goto_1
+    monitor-exit v0
+
+    return v2
+
+    :catch_2
+    move-exception v1
+
+    goto :goto_2
+
+    :catchall_0
+    move-exception p0
+
+    move-object v5, v1
+
+    move-object v1, p0
+
+    move-object p0, v5
+
+    goto :goto_4
+
+    :catch_3
+    move-exception p0
+
+    move-object v5, v1
+
+    move-object v1, p0
+
+    move-object p0, v5
+
+    .line 1059
+    :goto_2
+    :try_start_9
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    :try_end_9
+    .catchall {:try_start_9 .. :try_end_9} :catchall_1
+
+    if-eqz p0, :cond_2
+
+    .line 1066
+    :try_start_a
+    invoke-virtual {p0}, Ljava/io/BufferedInputStream;->close()V
+    :try_end_a
+    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_a} :catch_4
+    .catchall {:try_start_a .. :try_end_a} :catchall_2
+
+    goto :goto_3
+
+    :catch_4
+    move-exception p0
+
+    .line 1071
+    :try_start_b
+    invoke-virtual {p0}, Ljava/lang/Exception;->printStackTrace()V
+
+    :cond_2
+    :goto_3
+    const-string p0, "TbsShareManager"
+
+    const-string v1, "readCoreVersionFromConfig #5"
+
+    .line 1075
+    invoke-static {p0, v1}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_b
+    .catchall {:try_start_b .. :try_end_b} :catchall_2
+
+    const/4 p0, -0x2
+
+    .line 1076
+    monitor-exit v0
+
+    return p0
+
+    :catchall_1
+    move-exception v1
+
+    :goto_4
+    if-eqz p0, :cond_3
+
+    .line 1066
+    :try_start_c
+    invoke-virtual {p0}, Ljava/io/BufferedInputStream;->close()V
+    :try_end_c
+    .catch Ljava/lang/Exception; {:try_start_c .. :try_end_c} :catch_5
+    .catchall {:try_start_c .. :try_end_c} :catchall_2
+
+    goto :goto_5
+
+    :catch_5
+    move-exception p0
+
+    .line 1071
+    :try_start_d
+    invoke-virtual {p0}, Ljava/lang/Exception;->printStackTrace()V
+
+    .line 1072
+    :cond_3
+    :goto_5
+    throw v1
+    :try_end_d
+    .catchall {:try_start_d .. :try_end_d} :catchall_2
+
+    :catchall_2
+    move-exception p0
+
+    monitor-exit v0
+
+    throw p0
+.end method
+
+.method static i(Landroid/content/Context;)Z
+    .locals 8
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x0
+
+    .line 1354
+    :try_start_0
+    sget v2, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    if-nez v2, :cond_0
+
+    .line 1356
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/TbsShareManager;->findCoreForThirdPartyApp(Landroid/content/Context;)I
+
+    .line 1359
+    :cond_0
+    sget v2, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    if-nez v2, :cond_1
+
+    const/16 p0, 0x3e2
+
+    .line 1361
+    new-array v2, v1, [Ljava/lang/Object;
+
+    invoke-static {p0, v0, v2}, Lcom/tencent/smtt/utils/TbsLog;->addLog(ILjava/lang/String;[Ljava/lang/Object;)V
+
+    return v1
+
+    .line 1369
+    :cond_1
+    sget-object v2, Lcom/tencent/smtt/sdk/TbsShareManager;->c:Ljava/lang/String;
+
+    const/4 v3, 0x1
+
+    if-nez v2, :cond_2
+
+    .line 1371
+    sget v2, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    if-eqz v2, :cond_3
+
+    sget-object v2, Lcom/tencent/smtt/sdk/TbsShareManager;->f:Ljava/lang/String;
+
+    invoke-static {p0, v2}, Lcom/tencent/smtt/sdk/TbsShareManager;->getSharedTbsCoreVersion(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v2
+
+    sget v4, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    if-ne v2, v4, :cond_3
+
+    return v3
+
+    .line 1378
+    :cond_2
+    sget v2, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    if-eqz v2, :cond_3
+
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v2
+
+    sget-object v4, Lcom/tencent/smtt/sdk/TbsShareManager;->c:Ljava/lang/String;
+
+    invoke-virtual {v2, v4}, Lcom/tencent/smtt/sdk/m;->a(Ljava/lang/String;)I
+
+    move-result v2
+
+    sget v4, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    if-ne v2, v4, :cond_3
+
+    return v3
+
+    .line 1384
+    :cond_3
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/TbsShareManager;->l(Landroid/content/Context;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    return v3
+
+    .line 1389
+    :cond_4
+    invoke-static {}, Lcom/tencent/smtt/sdk/TbsCoreLoadStat;->getInstance()Lcom/tencent/smtt/sdk/TbsCoreLoadStat;
+
+    move-result-object v2
+
+    const/16 v3, 0x1a2
+
+    new-instance v4, Ljava/lang/Throwable;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "mAvailableCoreVersion="
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget v6, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v6, "; mSrcPackageName="
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget-object v6, Lcom/tencent/smtt/sdk/TbsShareManager;->f:Ljava/lang/String;
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v6, "; getSharedTbsCoreVersion(ctx, mSrcPackageName) is "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget-object v6, Lcom/tencent/smtt/sdk/TbsShareManager;->f:Ljava/lang/String;
+
+    .line 1392
+    invoke-static {p0, v6}, Lcom/tencent/smtt/sdk/TbsShareManager;->getSharedTbsCoreVersion(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v6, "; getHostCoreVersions is "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    .line 1393
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/TbsShareManager;->getHostCoreVersions(Landroid/content/Context;)J
+
+    move-result-wide v6
+
+    invoke-virtual {v5, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-direct {v4, v5}, Ljava/lang/Throwable;-><init>(Ljava/lang/String;)V
+
+    .line 1389
+    invoke-virtual {v2, p0, v3, v4}, Lcom/tencent/smtt/sdk/TbsCoreLoadStat;->a(Landroid/content/Context;ILjava/lang/Throwable;)V
+
+    .line 1395
+    sput-object v0, Lcom/tencent/smtt/sdk/TbsShareManager;->d:Ljava/lang/String;
+
+    .line 1396
+    sput v1, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    const/16 v2, 0x3e1
+
+    .line 1398
+    new-array v3, v1, [Ljava/lang/Object;
+
+    invoke-static {v2, v0, v3}, Lcom/tencent/smtt/utils/TbsLog;->addLog(ILjava/lang/String;[Ljava/lang/Object;)V
+
+    const-string v2, "TbsShareManager::isShareTbsCoreAvailableInner forceSysWebViewInner!"
+
+    .line 1399
+    invoke-static {p0, v2}, Lcom/tencent/smtt/sdk/QbSdk;->a(Landroid/content/Context;Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    return v1
+
+    :catch_0
+    move-exception p0
+
+    .line 1402
+    invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+
+    const/16 p0, 0x3e0
+
+    .line 1406
+    new-array v2, v1, [Ljava/lang/Object;
+
+    invoke-static {p0, v0, v2}, Lcom/tencent/smtt/utils/TbsLog;->addLog(ILjava/lang/String;[Ljava/lang/Object;)V
+
+    return v1
+.end method
+
+.method public static isThirdPartyApp(Landroid/content/Context;)Z
+    .locals 5
+
+    .line 105
+    :try_start_0
+    sget-object v0, Lcom/tencent/smtt/sdk/TbsShareManager;->a:Landroid/content/Context;
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/tencent/smtt/sdk/TbsShareManager;->a:Landroid/content/Context;
+
+    invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 108
+    sget-boolean p0, Lcom/tencent/smtt/sdk/TbsShareManager;->b:Z
+
+    return p0
+
+    .line 110
+    :cond_0
+    invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object p0
+
+    sput-object p0, Lcom/tencent/smtt/sdk/TbsShareManager;->a:Landroid/content/Context;
+
+    .line 111
+    sget-object p0, Lcom/tencent/smtt/sdk/TbsShareManager;->a:Landroid/content/Context;
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object p0
+
+    .line 112
+    invoke-static {}, Lcom/tencent/smtt/sdk/TbsShareManager;->getCoreProviderAppList()[Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 115
+    array-length v1, v0
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    :goto_0
+    if-ge v3, v1, :cond_2
+
+    aget-object v4, v0, v3
+
+    .line 118
+    invoke-virtual {p0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    .line 120
+    sput-boolean v2, Lcom/tencent/smtt/sdk/TbsShareManager;->b:Z
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+
+    return v2
+
+    :cond_1
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p0
+
+    .line 129
+    invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+
+    :cond_2
+    const/4 p0, 0x1
+
+    .line 132
+    sput-boolean p0, Lcom/tencent/smtt/sdk/TbsShareManager;->b:Z
+
+    return p0
+.end method
+
+.method static j(Landroid/content/Context;)Z
+    .locals 1
+
+    const/4 v0, 0x1
+
+    .line 1412
+    invoke-static {p0, v0}, Lcom/tencent/smtt/sdk/TbsShareManager;->b(Landroid/content/Context;Z)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method private static k(Landroid/content/Context;)Z
+    .locals 4
+
+    .line 340
+    sget-object v0, Lcom/tencent/smtt/sdk/TbsShareManager;->f:Ljava/lang/String;
+
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_0
+
+    return v1
+
+    .line 344
+    :cond_0
+    sget v2, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    invoke-static {p0, v0}, Lcom/tencent/smtt/sdk/TbsShareManager;->getSharedTbsCoreVersion(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v0
+
+    const/4 v3, 0x1
+
+    if-ne v2, v0, :cond_1
+
+    return v3
+
+    .line 349
+    :cond_1
+    sget v0, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    sget-object v2, Lcom/tencent/smtt/sdk/TbsShareManager;->f:Ljava/lang/String;
+
+    invoke-static {p0, v2}, Lcom/tencent/smtt/sdk/TbsShareManager;->getCoreShareDecoupleCoreVersion(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result p0
+
+    if-ne v0, p0, :cond_2
+
+    return v3
+
+    :cond_2
+    return v1
+.end method
+
+.method private static l(Landroid/content/Context;)Z
+    .locals 8
+
+    .line 359
+    invoke-static {}, Lcom/tencent/smtt/sdk/QbSdk;->getOnlyDownload()Z
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    return v1
+
+    .line 364
+    :cond_0
+    invoke-static {}, Lcom/tencent/smtt/sdk/TbsShareManager;->getCoreProviderAppList()[Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 365
+    array-length v2, v0
+
+    const/4 v3, 0x0
+
+    :goto_0
+    const/4 v4, 0x1
+
+    if-ge v3, v2, :cond_2
+
+    aget-object v5, v0, v3
+
+    .line 366
+    sget v6, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    if-lez v6, :cond_1
+
+    invoke-static {p0, v5}, Lcom/tencent/smtt/sdk/TbsShareManager;->getSharedTbsCoreVersion(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v7
+
+    if-ne v6, v7, :cond_1
+
+    .line 367
+    invoke-static {p0, v5, v4}, Lcom/tencent/smtt/sdk/TbsShareManager;->getPackageContext(Landroid/content/Context;Ljava/lang/String;Z)Landroid/content/Context;
+
+    move-result-object v6
+
+    .line 368
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p0}, Lcom/tencent/smtt/sdk/m;->f(Landroid/content/Context;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_1
+
+    .line 369
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0, v6}, Lcom/tencent/smtt/sdk/m;->b(Landroid/content/Context;Landroid/content/Context;)Ljava/io/File;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object p0
+
+    sput-object p0, Lcom/tencent/smtt/sdk/TbsShareManager;->d:Ljava/lang/String;
+
+    .line 370
+    sput-object v5, Lcom/tencent/smtt/sdk/TbsShareManager;->f:Ljava/lang/String;
+
+    return v4
+
+    :cond_1
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    .line 378
+    :cond_2
+    array-length v2, v0
+
+    const/4 v3, 0x0
+
+    :goto_1
+    if-ge v3, v2, :cond_4
+
+    aget-object v5, v0, v3
+
+    .line 379
+    sget v6, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    if-lez v6, :cond_3
+
+    invoke-static {p0, v5}, Lcom/tencent/smtt/sdk/TbsShareManager;->getCoreShareDecoupleCoreVersion(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v7
+
+    if-ne v6, v7, :cond_3
+
+    .line 380
+    invoke-static {p0, v5, v4}, Lcom/tencent/smtt/sdk/TbsShareManager;->getPackageContext(Landroid/content/Context;Ljava/lang/String;Z)Landroid/content/Context;
+
+    move-result-object v6
+
+    .line 381
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p0}, Lcom/tencent/smtt/sdk/m;->f(Landroid/content/Context;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_3
+
+    .line 382
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0, v6}, Lcom/tencent/smtt/sdk/m;->c(Landroid/content/Context;Landroid/content/Context;)Ljava/io/File;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object p0
+
+    sput-object p0, Lcom/tencent/smtt/sdk/TbsShareManager;->d:Ljava/lang/String;
+
+    .line 383
+    sput-object v5, Lcom/tencent/smtt/sdk/TbsShareManager;->f:Ljava/lang/String;
+
+    return v4
+
+    :cond_3
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_1
+
+    :cond_4
+    return v1
+.end method
+
+.method private static m(Landroid/content/Context;)Z
+    .locals 4
+
+    const/4 v0, 0x0
+
+    if-nez p0, :cond_0
+
+    return v0
+
+    .line 483
+    :cond_0
+    invoke-static {v0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, ""
+
+    const-string v3, ""
+
+    invoke-static {v0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {p0, v1, v2, v3, v0}, Lcom/tencent/smtt/sdk/TbsShareManager;->writeProperties(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 p0, 0x1
+
+    return p0
+.end method
+
+.method private static n(Landroid/content/Context;)V
+    .locals 8
+
+    .line 1088
+    sget-boolean v0, Lcom/tencent/smtt/sdk/TbsShareManager;->l:Z
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    .line 1092
+    :cond_0
+    const-class v0, Lcom/tencent/smtt/sdk/TbsShareManager;
+
+    monitor-enter v0
+
+    .line 1093
+    :try_start_0
+    sget-boolean v1, Lcom/tencent/smtt/sdk/TbsShareManager;->l:Z
+
+    if-eqz v1, :cond_1
+
+    .line 1094
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+
+    return-void
+
+    :cond_1
+    const/4 v1, 0x0
+
+    :try_start_1
+    const-string v2, "core_info"
+
+    .line 1099
+    invoke-static {p0, v2}, Lcom/tencent/smtt/sdk/TbsShareManager;->getTbsShareFile(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object p0
+    :try_end_1
+    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_2
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    if-nez p0, :cond_2
+
+    .line 1151
+    :try_start_2
+    monitor-exit v0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+
+    return-void
+
+    .line 1105
+    :cond_2
+    :try_start_3
+    new-instance v2, Ljava/io/FileInputStream;
+
+    invoke-direct {v2, p0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+
+    .line 1106
+    new-instance p0, Ljava/io/BufferedInputStream;
+
+    invoke-direct {p0, v2}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;)V
+    :try_end_3
+    .catch Ljava/lang/Throwable; {:try_start_3 .. :try_end_3} :catch_2
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    .line 1107
+    :try_start_4
+    new-instance v1, Ljava/util/Properties;
+
+    invoke-direct {v1}, Ljava/util/Properties;-><init>()V
+
+    .line 1108
+    invoke-virtual {v1, p0}, Ljava/util/Properties;->load(Ljava/io/InputStream;)V
+
+    const-string v2, "core_version"
+
+    const-string v3, ""
+
+    .line 1110
+    invoke-virtual {v1, v2, v3}, Ljava/util/Properties;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, ""
+
+    .line 1111
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    const/4 v4, 0x0
+
+    if-nez v3, :cond_3
+
+    .line 1112
+    invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v2
+
+    invoke-static {v2, v4}, Ljava/lang/Math;->max(II)I
+
+    move-result v2
+
+    sput v2, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    const-string v2, "TbsShareManager"
+
+    .line 1114
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "loadProperties -- mAvailableCoreVersion: "
+
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget v5, Lcom/tencent/smtt/sdk/TbsShareManager;->e:I
+
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v5, " "
+
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    new-instance v5, Ljava/lang/Throwable;
+
+    const-string v6, "#"
+
+    invoke-direct {v5, v6}, Ljava/lang/Throwable;-><init>(Ljava/lang/String;)V
+
+    invoke-static {v5}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_3
+    const-string v2, "core_packagename"
+
+    const-string v3, ""
+
+    .line 1117
+    invoke-virtual {v1, v2, v3}, Ljava/util/Properties;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, ""
+
+    .line 1118
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_4
+
+    .line 1119
+    sput-object v2, Lcom/tencent/smtt/sdk/TbsShareManager;->f:Ljava/lang/String;
+
+    .line 1121
+    :cond_4
+    sget-object v2, Lcom/tencent/smtt/sdk/TbsShareManager;->f:Ljava/lang/String;
+
+    const/4 v3, 0x1
+
+    if-eqz v2, :cond_6
+
+    sget-object v2, Lcom/tencent/smtt/sdk/TbsShareManager;->a:Landroid/content/Context;
+
+    if-eqz v2, :cond_6
+
+    .line 1122
+    sget-object v2, Lcom/tencent/smtt/sdk/TbsShareManager;->f:Ljava/lang/String;
+
+    sget-object v5, Lcom/tencent/smtt/sdk/TbsShareManager;->a:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    .line 1123
+    sput-boolean v3, Lcom/tencent/smtt/sdk/TbsShareManager;->k:Z
+
+    goto :goto_0
+
+    .line 1125
+    :cond_5
+    sput-boolean v4, Lcom/tencent/smtt/sdk/TbsShareManager;->k:Z
+
+    :cond_6
+    :goto_0
+    const-string v2, "core_path"
+
+    const-string v4, ""
+
+    .line 1129
+    invoke-virtual {v1, v2, v4}, Ljava/util/Properties;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v4, ""
+
+    .line 1130
+    invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_7
+
+    .line 1131
+    sput-object v2, Lcom/tencent/smtt/sdk/TbsShareManager;->d:Ljava/lang/String;
+
+    :cond_7
+    const-string v2, "app_version"
+
+    const-string v4, ""
+
+    .line 1133
+    invoke-virtual {v1, v2, v4}, Ljava/util/Properties;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v4, ""
+
+    .line 1134
+    invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_8
+
+    .line 1135
+    sput-object v2, Lcom/tencent/smtt/sdk/TbsShareManager;->j:Ljava/lang/String;
+
+    :cond_8
+    const-string v2, "core_disabled"
+
+    const-string v4, "false"
+
+    .line 1137
+    invoke-virtual {v1, v2, v4}, Ljava/util/Properties;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 1138
+    invoke-static {v1}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+
+    move-result v1
+
+    sput-boolean v1, Lcom/tencent/smtt/sdk/TbsShareManager;->g:Z
+
+    .line 1140
+    sput-boolean v3, Lcom/tencent/smtt/sdk/TbsShareManager;->l:Z
+    :try_end_4
+    .catch Ljava/lang/Throwable; {:try_start_4 .. :try_end_4} :catch_1
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+
+    .line 1147
+    :try_start_5
+    invoke-virtual {p0}, Ljava/io/BufferedInputStream;->close()V
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
+    .catchall {:try_start_5 .. :try_end_5} :catchall_2
+
+    goto :goto_3
+
+    :catch_0
+    move-exception p0
+
+    .line 1150
+    :goto_1
+    :try_start_6
+    invoke-virtual {p0}, Ljava/lang/Exception;->printStackTrace()V
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_2
+
+    goto :goto_3
+
+    :catch_1
+    move-exception v1
+
+    goto :goto_2
+
+    :catchall_0
+    move-exception p0
+
+    move-object v7, v1
+
+    move-object v1, p0
+
+    move-object p0, v7
+
+    goto :goto_4
+
+    :catch_2
+    move-exception p0
+
+    move-object v7, v1
+
+    move-object v1, p0
+
+    move-object p0, v7
+
+    .line 1143
+    :goto_2
+    :try_start_7
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_1
+
+    if-eqz p0, :cond_9
+
+    .line 1147
+    :try_start_8
+    invoke-virtual {p0}, Ljava/io/BufferedInputStream;->close()V
+    :try_end_8
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_3
+    .catchall {:try_start_8 .. :try_end_8} :catchall_2
+
+    goto :goto_3
+
+    :catch_3
+    move-exception p0
+
+    goto :goto_1
+
+    .line 1153
+    :cond_9
+    :goto_3
+    :try_start_9
+    monitor-exit v0
+    :try_end_9
+    .catchall {:try_start_9 .. :try_end_9} :catchall_2
+
+    return-void
+
+    :catchall_1
+    move-exception v1
+
+    :goto_4
+    if-eqz p0, :cond_a
+
+    .line 1147
+    :try_start_a
+    invoke-virtual {p0}, Ljava/io/BufferedInputStream;->close()V
+    :try_end_a
+    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_a} :catch_4
+    .catchall {:try_start_a .. :try_end_a} :catchall_2
+
+    goto :goto_5
+
+    :catch_4
+    move-exception p0
+
+    .line 1150
+    :try_start_b
+    invoke-virtual {p0}, Ljava/lang/Exception;->printStackTrace()V
+
+    .line 1151
+    :cond_a
+    :goto_5
+    throw v1
+
+    :catchall_2
+    move-exception p0
+
+    .line 1153
+    monitor-exit v0
+    :try_end_b
+    .catchall {:try_start_b .. :try_end_b} :catchall_2
+
+    throw p0
+.end method
+
+.method public static setHostCorePathAppDefined(Ljava/lang/String;)V
+    .locals 0
+
+    .line 90
+    sput-object p0, Lcom/tencent/smtt/sdk/TbsShareManager;->c:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public static declared-synchronized writeCoreInfoForThirdPartyApp(Landroid/content/Context;IZ)V
+    .locals 11
+
+    const-class v0, Lcom/tencent/smtt/sdk/TbsShareManager;
+
+    monitor-enter v0
+
+    :try_start_0
+    const-string v1, "TbsShareManager"
+
+    .line 569
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "writeCoreInfoForThirdPartyApp coreVersion is "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    if-nez p1, :cond_0
+
+    .line 572
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/TbsShareManager;->m(Landroid/content/Context;)Z
+
+    .line 574
+    sget-object p0, Lcom/tencent/smtt/sdk/TbsShareManager;->a:Landroid/content/Context;
+
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/TbsDownloadConfig;->getInstance(Landroid/content/Context;)Lcom/tencent/smtt/sdk/TbsDownloadConfig;
+
+    move-result-object p0
+
+    const/16 p1, -0x191
+
+    invoke-virtual {p0, p1}, Lcom/tencent/smtt/sdk/TbsDownloadConfig;->setDownloadInterruptCode(I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    .line 576
+    monitor-exit v0
+
+    return-void
+
+    .line 579
+    :cond_0
+    :try_start_1
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/TbsShareManager;->h(Landroid/content/Context;)I
+
+    move-result v1
+
+    const-string v2, "TbsShareManager"
+
+    .line 581
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "writeCoreInfoForThirdPartyApp coreVersionFromConfig is "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    if-gez v1, :cond_1
+
+    .line 586
+    sget-object p0, Lcom/tencent/smtt/sdk/TbsShareManager;->a:Landroid/content/Context;
+
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/TbsDownloadConfig;->getInstance(Landroid/content/Context;)Lcom/tencent/smtt/sdk/TbsDownloadConfig;
+
+    move-result-object p0
+
+    const/16 p1, -0x192
+
+    invoke-virtual {p0, p1}, Lcom/tencent/smtt/sdk/TbsDownloadConfig;->setDownloadInterruptCode(I)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    .line 588
+    monitor-exit v0
+
+    return-void
+
+    :cond_1
+    if-ne p1, v1, :cond_3
+
+    .line 592
+    :try_start_2
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/TbsShareManager;->d(Landroid/content/Context;)I
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    if-nez p2, :cond_2
+
+    .line 594
+    invoke-static {p0, p1}, Lcom/tencent/smtt/sdk/TbsShareManager;->a(Landroid/content/Context;I)V
+
+    .line 597
+    :cond_2
+    invoke-static {p0, p2}, Lcom/tencent/smtt/sdk/TbsShareManager;->c(Landroid/content/Context;Z)V
+
+    .line 599
+    sget-object p0, Lcom/tencent/smtt/sdk/TbsShareManager;->a:Landroid/content/Context;
+
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/TbsDownloadConfig;->getInstance(Landroid/content/Context;)Lcom/tencent/smtt/sdk/TbsDownloadConfig;
+
+    move-result-object p0
+
+    const/16 p1, -0x193
+
+    invoke-virtual {p0, p1}, Lcom/tencent/smtt/sdk/TbsDownloadConfig;->setDownloadInterruptCode(I)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    .line 601
+    monitor-exit v0
+
+    return-void
+
+    :cond_3
+    const/16 v2, -0x194
+
+    if-ge p1, v1, :cond_4
+
+    .line 605
+    :try_start_3
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/TbsShareManager;->m(Landroid/content/Context;)Z
+
+    .line 607
+    sget-object p0, Lcom/tencent/smtt/sdk/TbsShareManager;->a:Landroid/content/Context;
+
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/TbsDownloadConfig;->getInstance(Landroid/content/Context;)Lcom/tencent/smtt/sdk/TbsDownloadConfig;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v2}, Lcom/tencent/smtt/sdk/TbsDownloadConfig;->setDownloadInterruptCode(I)V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    .line 609
+    monitor-exit v0
+
+    return-void
+
+    .line 612
+    :cond_4
+    :try_start_4
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Lcom/tencent/smtt/sdk/m;->i(Landroid/content/Context;)I
+
+    move-result v1
+
+    const-string v3, "TbsShareManager"
+
+    .line 614
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "writeCoreInfoForThirdPartyApp coreVersionFromCoreShare is "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    if-ge p1, v1, :cond_5
+
+    .line 617
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/TbsShareManager;->m(Landroid/content/Context;)Z
+
+    .line 619
+    sget-object p0, Lcom/tencent/smtt/sdk/TbsShareManager;->a:Landroid/content/Context;
+
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/TbsDownloadConfig;->getInstance(Landroid/content/Context;)Lcom/tencent/smtt/sdk/TbsDownloadConfig;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v2}, Lcom/tencent/smtt/sdk/TbsDownloadConfig;->setDownloadInterruptCode(I)V
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    .line 621
+    monitor-exit v0
+
+    return-void
+
+    .line 624
+    :cond_5
+    :try_start_5
+    invoke-static {p0, p2}, Lcom/tencent/smtt/sdk/TbsShareManager;->d(Landroid/content/Context;Z)[Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 626
+    sget-object v2, Lcom/tencent/smtt/sdk/TbsShareManager;->c:Ljava/lang/String;
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    if-eqz v2, :cond_b
+
+    .line 628
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v2
+
+    sget-object v5, Lcom/tencent/smtt/sdk/TbsShareManager;->c:Ljava/lang/String;
+
+    invoke-virtual {v2, v5}, Lcom/tencent/smtt/sdk/m;->a(Ljava/lang/String;)I
+
+    move-result v2
+
+    if-ne p1, v2, :cond_7
+
+    .line 630
+    invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string p2, "AppDefined"
+
+    sget-object v1, Lcom/tencent/smtt/sdk/TbsShareManager;->c:Ljava/lang/String;
+
+    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {p0, p1, p2, v1, v2}, Lcom/tencent/smtt/sdk/TbsShareManager;->writeProperties(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+
+    :try_start_6
+    const-string p1, "core_info"
+
+    .line 633
+    invoke-static {p0, p1}, Lcom/tencent/smtt/sdk/TbsShareManager;->getTbsShareFile(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object p1
+
+    .line 634
+    sget-boolean p2, Lcom/tencent/smtt/sdk/TbsShareManager;->i:Z
+
+    if-nez p2, :cond_6
+
+    if-eqz p1, :cond_6
+
+    .line 635
+    new-instance p2, Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;
+
+    sget-object v1, Lcom/tencent/smtt/sdk/TbsShareManager;->a:Landroid/content/Context;
+
+    invoke-direct {p2, v1}, Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;-><init>(Landroid/content/Context;)V
+
+    .line 636
+    invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v1, "644"
+
+    invoke-virtual {p2, p1, v1}, Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;->a(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 639
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object p1
+
+    invoke-virtual {p1, p0}, Lcom/tencent/smtt/sdk/m;->r(Landroid/content/Context;)Ljava/io/File;
+
+    move-result-object p0
+
+    .line 640
+    invoke-virtual {p0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string p1, "755"
+
+    invoke-virtual {p2, p0, p1}, Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;->a(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 641
+    sput-boolean v4, Lcom/tencent/smtt/sdk/TbsShareManager;->i:Z
+    :try_end_6
+    .catch Ljava/lang/Throwable; {:try_start_6 .. :try_end_6} :catch_0
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p0
+
+    .line 644
+    :try_start_7
+    invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
+
+    .line 647
+    :cond_6
+    :goto_0
+    monitor-exit v0
+
+    return-void
+
+    .line 649
+    :cond_7
+    :try_start_8
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v2
+
+    sget-object v5, Lcom/tencent/smtt/sdk/TbsShareManager;->c:Ljava/lang/String;
+
+    invoke-virtual {v2, v5}, Lcom/tencent/smtt/sdk/m;->a(Ljava/lang/String;)I
+
+    move-result v2
+
+    if-le p1, v2, :cond_b
+
+    .line 652
+    array-length v2, v1
+
+    const/4 v5, 0x0
+
+    :goto_1
+    if-ge v5, v2, :cond_b
+
+    aget-object v6, v1, v5
+
+    .line 653
+    invoke-static {p0, v6}, Lcom/tencent/smtt/sdk/TbsShareManager;->getSharedTbsCoreVersion(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v7
+
+    if-ne p1, v7, :cond_a
+
+    .line 654
+    invoke-static {p0, v6, v4}, Lcom/tencent/smtt/sdk/TbsShareManager;->getPackageContext(Landroid/content/Context;Ljava/lang/String;Z)Landroid/content/Context;
+
+    move-result-object v6
+
+    .line 655
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v6}, Lcom/tencent/smtt/sdk/m;->q(Landroid/content/Context;)Ljava/io/File;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v7
+
+    .line 656
+    invoke-static {p0}, Lcom/tencent/smtt/utils/b;->b(Landroid/content/Context;)I
+
+    .line 657
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v6}, Lcom/tencent/smtt/sdk/m;->f(Landroid/content/Context;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_8
+
+    goto :goto_3
+
+    .line 661
+    :cond_8
+    new-instance p2, Ljava/io/File;
+
+    sget-object v1, Lcom/tencent/smtt/sdk/TbsShareManager;->c:Ljava/lang/String;
+
+    invoke-direct {p2, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    .line 662
+    new-instance v1, Ljava/io/File;
+
+    invoke-direct {v1, v7}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    .line 663
+    new-instance v2, Lcom/tencent/smtt/sdk/TbsShareManager$1;
+
+    invoke-direct {v2}, Lcom/tencent/smtt/sdk/TbsShareManager$1;-><init>()V
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_0
+
+    .line 670
+    :try_start_9
+    invoke-static {v1, p2, v2}, Lcom/tencent/smtt/utils/f;->a(Ljava/io/File;Ljava/io/File;Ljava/io/FileFilter;)Z
+
+    .line 671
+    invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string p2, "AppDefined"
+
+    sget-object v1, Lcom/tencent/smtt/sdk/TbsShareManager;->c:Ljava/lang/String;
+
+    invoke-static {v4}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {p0, p1, p2, v1, v2}, Lcom/tencent/smtt/sdk/TbsShareManager;->writeProperties(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string p1, "core_info"
+
+    .line 674
+    invoke-static {p0, p1}, Lcom/tencent/smtt/sdk/TbsShareManager;->getTbsShareFile(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object p1
+
+    .line 675
+    sget-boolean p2, Lcom/tencent/smtt/sdk/TbsShareManager;->i:Z
+
+    if-nez p2, :cond_9
+
+    if-eqz p1, :cond_9
+
+    .line 676
+    new-instance p2, Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;
+
+    sget-object v1, Lcom/tencent/smtt/sdk/TbsShareManager;->a:Landroid/content/Context;
+
+    invoke-direct {p2, v1}, Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;-><init>(Landroid/content/Context;)V
+
+    .line 677
+    invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v1, "644"
+
+    invoke-virtual {p2, p1, v1}, Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;->a(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 680
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object p1
+
+    invoke-virtual {p1, p0}, Lcom/tencent/smtt/sdk/m;->r(Landroid/content/Context;)Ljava/io/File;
+
+    move-result-object p0
+
+    .line 681
+    invoke-virtual {p0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string p1, "755"
+
+    invoke-virtual {p2, p0, p1}, Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;->a(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 682
+    sput-boolean v4, Lcom/tencent/smtt/sdk/TbsShareManager;->i:Z
+    :try_end_9
+    .catch Ljava/lang/Throwable; {:try_start_9 .. :try_end_9} :catch_1
+    .catchall {:try_start_9 .. :try_end_9} :catchall_0
+
+    goto :goto_2
+
+    :catch_1
+    move-exception p0
+
+    .line 685
+    :try_start_a
+    invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+    :try_end_a
+    .catchall {:try_start_a .. :try_end_a} :catchall_0
+
+    .line 688
+    :cond_9
+    :goto_2
+    monitor-exit v0
+
+    return-void
+
+    :cond_a
+    :goto_3
+    add-int/lit8 v5, v5, 0x1
+
+    goto/16 :goto_1
+
+    .line 698
+    :cond_b
+    :try_start_b
+    array-length v2, v1
+
+    const/4 v5, 0x0
+
+    :goto_4
+    if-ge v5, v2, :cond_12
+
+    aget-object v6, v1, v5
+
+    .line 699
+    invoke-static {p0, v6}, Lcom/tencent/smtt/sdk/TbsShareManager;->getSharedTbsCoreVersion(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v7
+
+    if-ne p1, v7, :cond_e
+
+    .line 700
+    invoke-static {p0, v6, v4}, Lcom/tencent/smtt/sdk/TbsShareManager;->getPackageContext(Landroid/content/Context;Ljava/lang/String;Z)Landroid/content/Context;
+
+    move-result-object v7
+
+    .line 701
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v7}, Lcom/tencent/smtt/sdk/m;->q(Landroid/content/Context;)Ljava/io/File;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v8
+
+    .line 702
+    invoke-static {p0}, Lcom/tencent/smtt/utils/b;->b(Landroid/content/Context;)I
+
+    move-result v9
+
+    .line 703
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v7}, Lcom/tencent/smtt/sdk/m;->f(Landroid/content/Context;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_c
+
+    goto/16 :goto_6
+
+    .line 708
+    :cond_c
+    invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v6, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_d
+
+    const-string v1, "TbsShareManager"
+
+    .line 710
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "thirdAPP pre--> delete old core_share Directory:"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 711
+    sget-object v1, Lcom/tencent/smtt/sdk/TbsShareManager;->a:Landroid/content/Context;
+
+    invoke-static {v1}, Lcom/tencent/smtt/sdk/k;->a(Landroid/content/Context;)Lcom/tencent/smtt/sdk/k;
+
+    move-result-object v1
+
+    const-string v2, "remove_old_core"
+
+    invoke-virtual {v1, v2, v4}, Lcom/tencent/smtt/sdk/k;->a(Ljava/lang/String;I)V
+
+    .line 714
+    :cond_d
+    invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v9}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {p0, v1, v6, v8, v2}, Lcom/tencent/smtt/sdk/TbsShareManager;->writeProperties(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_b
+    .catchall {:try_start_b .. :try_end_b} :catchall_0
+
+    :try_start_c
+    const-string v1, "core_info"
+
+    .line 718
+    invoke-static {p0, v1}, Lcom/tencent/smtt/sdk/TbsShareManager;->getTbsShareFile(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v1
+
+    .line 719
+    sget-boolean v2, Lcom/tencent/smtt/sdk/TbsShareManager;->i:Z
+
+    if-nez v2, :cond_13
+
+    if-eqz v1, :cond_13
+
+    .line 720
+    new-instance v2, Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;
+
+    sget-object v3, Lcom/tencent/smtt/sdk/TbsShareManager;->a:Landroid/content/Context;
+
+    invoke-direct {v2, v3}, Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;-><init>(Landroid/content/Context;)V
+
+    .line 721
+    invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v3, "644"
+
+    invoke-virtual {v2, v1, v3}, Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;->a(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 724
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Lcom/tencent/smtt/sdk/m;->r(Landroid/content/Context;)Ljava/io/File;
+
+    move-result-object v1
+
+    .line 725
+    invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v3, "755"
+
+    invoke-virtual {v2, v1, v3}, Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;->a(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 726
+    sput-boolean v4, Lcom/tencent/smtt/sdk/TbsShareManager;->i:Z
+    :try_end_c
+    .catch Ljava/lang/Throwable; {:try_start_c .. :try_end_c} :catch_2
+    .catchall {:try_start_c .. :try_end_c} :catchall_0
+
+    goto/16 :goto_7
+
+    :catch_2
+    move-exception v1
+
+    .line 729
+    :try_start_d
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+
+    goto/16 :goto_7
+
+    .line 737
+    :cond_e
+    invoke-static {p0, v6}, Lcom/tencent/smtt/sdk/TbsShareManager;->getCoreShareDecoupleCoreVersion(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v7
+
+    if-ne p1, v7, :cond_11
+
+    .line 738
+    invoke-static {p0, v6, v4}, Lcom/tencent/smtt/sdk/TbsShareManager;->getPackageContext(Landroid/content/Context;Ljava/lang/String;Z)Landroid/content/Context;
+
+    move-result-object v7
+
+    .line 739
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v7}, Lcom/tencent/smtt/sdk/m;->p(Landroid/content/Context;)Ljava/io/File;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v8
+
+    .line 740
+    invoke-static {p0}, Lcom/tencent/smtt/utils/b;->b(Landroid/content/Context;)I
+
+    move-result v9
+
+    .line 741
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v7}, Lcom/tencent/smtt/sdk/m;->f(Landroid/content/Context;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_f
+
+    goto/16 :goto_6
+
+    .line 746
+    :cond_f
+    invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v6, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_10
+
+    const-string v1, "TbsShareManager"
+
+    .line 748
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "thirdAPP pre--> delete old core_share Directory:"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    .line 749
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Lcom/tencent/smtt/sdk/m;->q(Landroid/content/Context;)Ljava/io/File;
+
+    move-result-object v1
+    :try_end_d
+    .catchall {:try_start_d .. :try_end_d} :catchall_0
+
+    .line 752
+    :try_start_e
+    invoke-static {v1}, Lcom/tencent/smtt/utils/f;->b(Ljava/io/File;)V
+
+    const-string v1, "TbsShareManager"
+
+    const-string/jumbo v2, "thirdAPP success--> delete old core_share Directory"
+
+    .line 753
+    invoke-static {v1, v2}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_e
+    .catch Ljava/lang/Throwable; {:try_start_e .. :try_end_e} :catch_3
+    .catchall {:try_start_e .. :try_end_e} :catchall_0
+
+    goto :goto_5
+
+    :catch_3
+    move-exception v1
+
+    .line 757
+    :try_start_f
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+
+    .line 761
+    :cond_10
+    :goto_5
+    invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v9}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {p0, v1, v6, v8, v2}, Lcom/tencent/smtt/sdk/TbsShareManager;->writeProperties(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_f
+    .catchall {:try_start_f .. :try_end_f} :catchall_0
+
+    :try_start_10
+    const-string v1, "core_info"
+
+    .line 765
+    invoke-static {p0, v1}, Lcom/tencent/smtt/sdk/TbsShareManager;->getTbsShareFile(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object v1
+
+    .line 766
+    sget-boolean v2, Lcom/tencent/smtt/sdk/TbsShareManager;->i:Z
+
+    if-nez v2, :cond_13
+
+    if-eqz v1, :cond_13
+
+    .line 767
+    new-instance v2, Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;
+
+    sget-object v3, Lcom/tencent/smtt/sdk/TbsShareManager;->a:Landroid/content/Context;
+
+    invoke-direct {v2, v3}, Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;-><init>(Landroid/content/Context;)V
+
+    .line 768
+    invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v3, "644"
+
+    invoke-virtual {v2, v1, v3}, Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;->a(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 771
+    invoke-static {}, Lcom/tencent/smtt/sdk/m;->a()Lcom/tencent/smtt/sdk/m;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Lcom/tencent/smtt/sdk/m;->r(Landroid/content/Context;)Ljava/io/File;
+
+    move-result-object v1
+
+    .line 772
+    invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v3, "755"
+
+    invoke-virtual {v2, v1, v3}, Lcom/tencent/smtt/sdk/TbsLinuxToolsJni;->a(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 773
+    sput-boolean v4, Lcom/tencent/smtt/sdk/TbsShareManager;->i:Z
+    :try_end_10
+    .catch Ljava/lang/Throwable; {:try_start_10 .. :try_end_10} :catch_4
+    .catchall {:try_start_10 .. :try_end_10} :catchall_0
+
+    goto :goto_7
+
+    :catch_4
+    move-exception v1
+
+    .line 776
+    :try_start_11
+    invoke-virtual {v1}, Ljava/lang/Throwable;->printStackTrace()V
+
+    goto :goto_7
+
+    :cond_11
+    :goto_6
+    add-int/lit8 v5, v5, 0x1
+
+    goto/16 :goto_4
+
+    :cond_12
+    const/4 v4, 0x0
+
+    :cond_13
+    :goto_7
+    if-nez v4, :cond_14
+
+    if-nez p2, :cond_14
+
+    .line 787
+    invoke-static {p0, p1}, Lcom/tencent/smtt/sdk/TbsShareManager;->a(Landroid/content/Context;I)V
+    :try_end_11
+    .catchall {:try_start_11 .. :try_end_11} :catchall_0
+
+    .line 792
+    :cond_14
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+
+    throw p0
+.end method
+
+.method public static writeProperties(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 6
+
+    const-string v0, "TbsShareManager"
+
+    .line 869
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "writeProperties coreVersion is "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v2, " corePackageName is "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v2, " corePath is "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v0, "TbsShareManager"
+
+    .line 873
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "writeProperties -- stack: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    new-instance v2, Ljava/lang/Throwable;
+
+    const-string v3, "#"
+
+    invoke-direct {v2, v3}, Ljava/lang/Throwable;-><init>(Ljava/lang/String;)V
+
+    invoke-static {v2}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/tencent/smtt/utils/TbsLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v0, 0x0
+
+    :try_start_0
+    const-string v1, "core_info"
+
+    .line 880
+    invoke-static {p0, v1}, Lcom/tencent/smtt/sdk/TbsShareManager;->getTbsShareFile(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
+
+    move-result-object p0
+
+    if-nez p0, :cond_0
+
+    .line 884
+    sget-object p0, Lcom/tencent/smtt/sdk/TbsShareManager;->a:Landroid/content/Context;
+
+    invoke-static {p0}, Lcom/tencent/smtt/sdk/TbsDownloadConfig;->getInstance(Landroid/content/Context;)Lcom/tencent/smtt/sdk/TbsDownloadConfig;
+
+    move-result-object p0
+
+    const/16 p1, -0x195
+
+    invoke-virtual {p0, p1}, Lcom/tencent/smtt/sdk/TbsDownloadConfig;->setDownloadInterruptCode(I)V
+
+    return-void
+
+    .line 890
+    :cond_0
+    new-instance v1, Ljava/io/FileInputStream;
+
+    invoke-direct {v1, p0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+
+    .line 891
+    new-instance v2, Ljava/io/BufferedInputStream;
+
+    invoke-direct {v2, v1}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;)V
+    :try_end_0
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_4
+    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+
+    .line 892
+    :try_start_1
+    new-instance v1, Ljava/util/Properties;
+
+    invoke-direct {v1}, Ljava/util/Properties;-><init>()V
+
+    .line 893
+    invoke-virtual {v1, v2}, Ljava/util/Properties;->load(Ljava/io/InputStream;)V
+    :try_end_1
+    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_3
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    const/4 v3, 0x0
+
+    .line 898
+    :try_start_2
+    invoke-static {p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v4
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_3
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    goto :goto_0
+
+    :catch_0
+    const/4 v4, 0x0
+
+    :goto_0
+    if-eqz v4, :cond_1
+
+    :try_start_3
+    const-string v4, "core_version"
+
+    .line 906
+    invoke-virtual {v1, v4, p1}, Ljava/util/Properties;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
+
+    const-string p1, "core_disabled"
+
+    .line 907
+    invoke-static {v3}, Ljava/lang/String;->valueOf(Z)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v1, p1, v4}, Ljava/util/Properties;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
+
+    const-string p1, "core_packagename"
+
+    .line 908
+    invoke-virtual {v1, p1, p2}, Ljava/util/Properties;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
+
+    const-string p1, "core_path"
+
+    .line 909
+    invoke-virtual {v1, p1, p3}, Ljava/util/Properties;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
+
+    const-string p1, "app_version"
+
+    .line 910
+    invoke-virtual {v1, p1, p4}, Ljava/util/Properties;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
+
+    goto :goto_1
+
+    :cond_1
+    const-string p1, "core_disabled"
+
+    const/4 p2, 0x1
+
+    .line 914
+    invoke-static {p2}, Ljava/lang/String;->valueOf(Z)Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-virtual {v1, p1, p2}, Ljava/util/Properties;->setProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
+
+    .line 917
+    :goto_1
+    new-instance p1, Ljava/io/FileOutputStream;
+
+    invoke-direct {p1, p0}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
+
+    .line 918
+    new-instance p0, Ljava/io/BufferedOutputStream;
+
+    invoke-direct {p0, p1}, Ljava/io/BufferedOutputStream;-><init>(Ljava/io/OutputStream;)V
+    :try_end_3
+    .catch Ljava/lang/Throwable; {:try_start_3 .. :try_end_3} :catch_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+
+    .line 919
+    :try_start_4
+    invoke-virtual {v1, p0, v0}, Ljava/util/Properties;->store(Ljava/io/OutputStream;Ljava/lang/String;)V
+
+    .line 921
+    sput-boolean v3, Lcom/tencent/smtt/sdk/TbsShareManager;->l:Z
+
+    .line 924
+    sget-object p1, Lcom/tencent/smtt/sdk/TbsShareManager;->a:Landroid/content/Context;
+
+    invoke-static {p1}, Lcom/tencent/smtt/sdk/TbsDownloadConfig;->getInstance(Landroid/content/Context;)Lcom/tencent/smtt/sdk/TbsDownloadConfig;
+
+    move-result-object p1
+
+    const/16 p2, -0x196
+
+    invoke-virtual {p1, p2}, Lcom/tencent/smtt/sdk/TbsDownloadConfig;->setDownloadInterruptCode(I)V
+    :try_end_4
+    .catch Ljava/lang/Throwable; {:try_start_4 .. :try_end_4} :catch_2
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    .line 935
+    :try_start_5
+    invoke-virtual {v2}, Ljava/io/BufferedInputStream;->close()V
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_1
+
+    goto :goto_2
+
+    :catch_1
+    move-exception p1
+
+    .line 940
+    invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
+
+    .line 945
+    :goto_2
+    :try_start_6
+    invoke-virtual {p0}, Ljava/io/BufferedOutputStream;->close()V
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_6
+
+    goto :goto_5
+
+    :catchall_0
+    move-exception p1
+
+    move-object v0, p0
+
+    move-object p0, p1
+
+    goto :goto_6
+
+    :catch_2
+    move-exception p1
+
+    move-object v0, v2
+
+    move-object v5, p1
+
+    move-object p1, p0
+
+    move-object p0, v5
+
+    goto :goto_3
+
+    :catchall_1
+    move-exception p0
+
+    goto :goto_6
+
+    :catch_3
+    move-exception p0
+
+    move-object p1, v0
+
+    move-object v0, v2
+
+    goto :goto_3
+
+    :catchall_2
+    move-exception p0
+
+    move-object v2, v0
+
+    goto :goto_6
+
+    :catch_4
+    move-exception p0
+
+    move-object p1, v0
+
+    .line 928
+    :goto_3
+    :try_start_7
+    invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_3
+
+    if-eqz v0, :cond_2
+
+    .line 935
+    :try_start_8
+    invoke-virtual {v0}, Ljava/io/BufferedInputStream;->close()V
+    :try_end_8
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_5
+
+    goto :goto_4
+
+    :catch_5
+    move-exception p0
+
+    .line 940
+    invoke-virtual {p0}, Ljava/lang/Exception;->printStackTrace()V
+
+    :cond_2
+    :goto_4
+    if-eqz p1, :cond_3
+
+    .line 945
+    :try_start_9
+    invoke-virtual {p1}, Ljava/io/BufferedOutputStream;->close()V
+    :try_end_9
+    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_6
+
+    goto :goto_5
+
+    :catch_6
+    move-exception p0
+
+    .line 950
+    invoke-virtual {p0}, Ljava/lang/Exception;->printStackTrace()V
+
+    :cond_3
+    :goto_5
+    return-void
+
+    :catchall_3
+    move-exception p0
+
+    move-object v2, v0
+
+    move-object v0, p1
+
+    :goto_6
+    if-eqz v2, :cond_4
+
+    .line 935
+    :try_start_a
+    invoke-virtual {v2}, Ljava/io/BufferedInputStream;->close()V
+    :try_end_a
+    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_a} :catch_7
+
+    goto :goto_7
+
+    :catch_7
+    move-exception p1
+
+    .line 940
+    invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
+
+    :cond_4
+    :goto_7
+    if-eqz v0, :cond_5
+
+    .line 945
+    :try_start_b
+    invoke-virtual {v0}, Ljava/io/BufferedOutputStream;->close()V
+    :try_end_b
+    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_b} :catch_8
+
+    goto :goto_8
+
+    :catch_8
+    move-exception p1
+
+    .line 950
+    invoke-virtual {p1}, Ljava/lang/Exception;->printStackTrace()V
+
+    .line 951
+    :cond_5
+    :goto_8
+    throw p0
+.end method

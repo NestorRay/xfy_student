@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.flyco.roundview.RoundLinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip" android:layout_centerInParent="true">
+        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton android:layout_gravity="center_vertical" android:id="@id/name_tv" android:clickable="false" android:layout_width="48.0dip" android:layout_height="48.0dip" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" />
+        <org.sufficientlysecure.htmltextview.HtmlTextView android:textColor="@color/titleColor" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/opt_html_tv" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </com.flyco.roundview.RoundLinearLayout>
+</RelativeLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/rlyt_title" android:layout_width="fill_parent" android:layout_height="@dimen/navi_bar_height" android:layout_marginTop="@dimen/status_bar_height" android:layout_marginStart="10.0dip">
+        <TextView android:textSize="@dimen/tv_back_size" android:textColor="#ff6098ff" android:id="@id/back_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="返回" android:layout_centerVertical="true" android:drawableStart="@drawable/w_ret" android:layout_marginStart="17.0dip" />
+        <TextView android:textSize="@dimen/tv_title_size" android:textColor="@color/titleColor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="选课中心" android:layout_centerInParent="true" />
+        <ImageView android:background="@color/c_line_gray" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/rlyt_title">
+        <RelativeLayout android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <Spinner android:textColor="@color/txt_hei" android:id="@id/spinner" android:layout_width="fill_parent" android:layout_height="40.0dip" android:spinnerMode="dropdown" />
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/subject_recycleview" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/spinner" />
+        </RelativeLayout>
+        <RelativeLayout android:background="@color/bg_color" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="5.0">
+            <com.scwang.smartrefresh.layout.SmartRefreshLayout android:id="@id/m_refreshlayoyt" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <com.scwang.smartrefresh.header.MaterialHeader android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                <androidx.recyclerview.widget.RecyclerView android:id="@id/recycleview" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="5.0dip" android:layout_marginRight="5.0dip" app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

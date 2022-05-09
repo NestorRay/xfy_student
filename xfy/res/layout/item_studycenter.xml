@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/shape_rlyt_bg" android:paddingLeft="17.0dip" android:paddingTop="10.0dip" android:paddingRight="17.0dip" android:paddingBottom="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/top" android:layout_width="fill_parent" android:layout_height="35.0dip" android:layout_marginRight="5.0dip" android:layout_toLeftOf="@id/tv_status">
+            <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton android:textColor="@color/zj_blue" android:id="@id/subjectname" android:paddingLeft="10.0dip" android:paddingTop="2.0dip" android:paddingRight="10.0dip" android:paddingBottom="2.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="数学" app:qmui_borderColor="@color/zj_blue" app:qmui_borderWidth="1.0px" app:qmui_radius="5.0dip" />
+            <org.sufficientlysecure.htmltextview.HtmlTextView android:textSize="17.0sp" android:textColor="@color/txt_hei" android:ellipsize="end" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxWidth="258.0dip" android:text="" android:maxLines="1" android:singleLine="true" android:lineSpacingExtra="5.0dip" android:layout_marginStart="5.0dip" />
+            <ImageView android:id="@id/iv_state" android:layout_width="45.0dip" android:layout_height="20.0dip" android:layout_marginLeft="3.0dip" />
+        </LinearLayout>
+        <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" android:layout_below="@id/top">
+            <TextView android:textColor="@color/txt_gray" android:id="@id/begintime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_marginEnd="8.0dip" />
+            <TextView android:textColor="@color/txt_gray" android:id="@id/planbegintime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_marginEnd="8.0dip" android:layout_toEndOf="@id/begintime" />
+            <TextView android:textColor="@color/txt_gray" android:id="@id/totaltime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_marginEnd="8.0dip" android:layout_toEndOf="@id/planbegintime" />
+            <TextView android:textColor="@color/txt_gray" android:id="@id/teachername" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_marginEnd="8.0dip" android:layout_toEndOf="@id/totaltime" />
+            <TextView android:textColor="@color/txt_gray" android:id="@id/keshi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:layout_toEndOf="@id/teachername" />
+        </RelativeLayout>
+        <TextView android:textSize="16.0sp" android:textColor="@color/txt_gray" android:gravity="center" android:id="@id/tv_status" android:background="@drawable/zhibo_status_bg" android:paddingTop="@dimen/dp_7" android:paddingBottom="@dimen/dp_7" android:layout_width="90.0dip" android:layout_height="wrap_content" android:text="未知" android:layout_centerVertical="true" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/selector_common_bg" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/coll_book_iv_cover" android:layout_width="45.0dip" android:layout_height="60.0dip" android:layout_marginLeft="10.0dip" android:layout_marginTop="10.0dip" android:layout_marginBottom="10.0dip" android:src="@drawable/ic_book_loading" android:scaleType="centerInside" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+    <RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:layout_toRightOf="@id/coll_book_iv_cover" android:layout_centerVertical="true">
+        <TextView android:textSize="16.0sp" android:textColor="@color/nb_text_default" android:ellipsize="end" android:id="@id/coll_book_tv_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="1" android:maxEms="15" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/nb_text_common_h2" android:id="@id/coll_book_tv_lately_update" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:layout_below="@id/coll_book_tv_name" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/nb_text_common_h2" android:ellipsize="end" android:id="@id/coll_book_tv_chapter" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:maxLines="1" android:maxEms="14" android:layout_toRightOf="@id/coll_book_tv_lately_update" android:layout_alignBottom="@id/coll_book_tv_lately_update" />
+    </RelativeLayout>
+    <ImageView android:id="@id/coll_book_iv_top" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/label_book_top" android:layout_alignParentRight="true" />
+    <CheckBox android:id="@id/coll_book_cb_selected" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    <ImageView android:id="@id/coll_book_iv_red_rot" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15.0dip" android:src="@drawable/notif_red_dot" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+</RelativeLayout>

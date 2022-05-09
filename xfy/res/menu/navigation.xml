@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/main" android:title="@string/homeBot1" />
+    <item android:id="@id/mes" android:title="@string/homeBot2" />
+    <item android:id="@id/shop" android:title="@string/homeBot3" />
+    <item android:id="@id/me" android:title="@string/homeBot4" />
+</menu>

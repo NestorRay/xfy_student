@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/dp_3" android:layout_marginBottom="@dimen/dp_3"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView android:id="@id/iv_class_test" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginBottom="2.0dip" android:scaleType="fitXY" android:adjustViewBounds="true" />
+</RelativeLayout>

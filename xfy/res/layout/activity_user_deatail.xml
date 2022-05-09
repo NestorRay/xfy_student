@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/scDback" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/toplBar" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/tv_back_size" android:textColor="#ff6098ff" android:id="@id/ret" android:paddingLeft="@dimen/dp_13" android:paddingTop="@dimen/dp_18" android:paddingBottom="@dimen/dp_15" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ret" android:drawableLeft="@drawable/w_ret" android:drawablePadding="@dimen/dp_2" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintTop_toTopOf="parent" />
+        <TextView android:textSize="@dimen/tv_title_size" android:textColor="@color/txt_hei" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="个人设置" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.example.juanshichang.widget.MyScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/ScrollNoShadow">
+        <LinearLayout android:orientation="vertical" android:background="@drawable/bg_fg_white" android:paddingLeft="@dimen/dp_14" android:paddingRight="@dimen/dp_16" android:paddingBottom="@dimen/dp_60" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/dp_10" android:layout_marginTop="@dimen/dp_10" android:layout_marginRight="@dimen/dp_10" android:layout_marginBottom="@dimen/dp_15">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/iconLayout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="@dimen/sp_16" android:textColor="@color/txt_hei" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/meIcon" android:drawableLeft="@drawable/iv_touxiang" android:drawablePadding="@dimen/dp_14" android:layout_weight="1.0" />
+                <com.qmuiteam.qmui.widget.QMUIRadiusImageView2 android:id="@id/userIcon" android:layout_width="@dimen/dp_40" android:layout_height="@dimen/dp_40" android:layout_marginTop="@dimen/dp_11" android:layout_marginBottom="@dimen/dp_11" app:qmui_is_circle="true" />
+                <View android:background="@drawable/u_return" android:layout_width="@dimen/dp_7" android:layout_height="@dimen/dp_12" android:layout_marginLeft="@dimen/dp_12" />
+            </LinearLayout>
+            <View android:background="@color/line" android:layout_width="fill_parent" android:layout_height="2.0px" android:layout_marginLeft="@dimen/dp_12" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/phoneLayout" android:paddingTop="@dimen/dp_14" android:paddingBottom="@dimen/dp_14" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="@dimen/sp_16" android:textColor="@color/txt_hei" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/accMes" android:drawableLeft="@drawable/iv_zhanghao" android:drawablePadding="@dimen/dp_14" android:layout_weight="1.0" />
+                <TextView android:textSize="@dimen/sp_16" android:textColor="@color/txt_hei" android:id="@id/userPhone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            </LinearLayout>
+            <View android:background="@color/line" android:layout_width="fill_parent" android:layout_height="2.0px" android:layout_marginLeft="@dimen/dp_16" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/uPsLayout" android:paddingTop="@dimen/dp_14" android:paddingBottom="@dimen/dp_14" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="@dimen/sp_16" android:textColor="@color/txt_hei" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/updPs" android:drawableLeft="@drawable/iv_mima" android:drawablePadding="@dimen/dp_14" android:layout_weight="1.0" />
+                <View android:background="@drawable/u_return" android:layout_width="@dimen/dp_7" android:layout_height="@dimen/dp_12" />
+            </LinearLayout>
+            <View android:background="@color/line" android:layout_width="fill_parent" android:layout_height="2.0px" android:layout_marginLeft="@dimen/dp_16" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/uNameLayout" android:paddingTop="@dimen/dp_14" android:paddingBottom="@dimen/dp_14" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="@dimen/sp_16" android:textColor="@color/txt_hei" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/myName" android:drawableLeft="@drawable/iv_name" android:drawablePadding="@dimen/dp_14" android:layout_weight="1.0" />
+                <TextView android:textSize="@dimen/sp_16" android:textColor="@color/txt_hei" android:id="@id/userName" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            </LinearLayout>
+            <View android:background="@color/line" android:layout_width="fill_parent" android:layout_height="2.0px" android:layout_marginLeft="@dimen/dp_16" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/uSchoolLayout" android:paddingTop="@dimen/dp_14" android:paddingBottom="@dimen/dp_14" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="@dimen/sp_16" android:textColor="@color/txt_hei" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/mySchool" android:drawableLeft="@drawable/iv_xuexiao" android:drawablePadding="@dimen/dp_14" android:layout_weight="1.0" />
+                <TextView android:textSize="@dimen/sp_16" android:textColor="@color/txt_hei" android:id="@id/userSchool" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            </LinearLayout>
+            <View android:background="@color/line" android:layout_width="fill_parent" android:layout_height="2.0px" android:layout_marginLeft="@dimen/dp_16" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/uClassLayout" android:paddingTop="@dimen/dp_14" android:paddingBottom="@dimen/dp_14" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="@dimen/sp_16" android:textColor="@color/txt_hei" android:id="@id/tv_my_class" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/myClass" android:drawableLeft="@drawable/iv_banji" android:drawablePadding="@dimen/dp_14" />
+                <TextView android:textSize="@dimen/sp_16" android:textColor="@color/txt_hei" android:gravity="right" android:id="@id/userClass" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_toRightOf="@id/tv_my_class" />
+            </LinearLayout>
+            <View android:background="@color/line" android:layout_width="fill_parent" android:layout_height="2.0px" android:layout_marginLeft="@dimen/dp_16" />
+        </LinearLayout>
+    </com.example.juanshichang.widget.MyScrollView>
+</LinearLayout>

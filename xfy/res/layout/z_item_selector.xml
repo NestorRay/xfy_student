@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:textColor="@color/nb_text_default" android:gravity="center|left" android:id="@id/selector_tv_type" android:paddingLeft="@dimen/nb_padding_normal" android:paddingTop="@dimen/nb_padding_large" android:paddingRight="@dimen/nb_padding_normal" android:paddingBottom="@dimen/nb_padding_large" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

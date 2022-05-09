@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/wlback" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout android:id="@id/topVBar" android:background="@color/logBut" android:layout_width="fill_parent" android:layout_height="wrap_content" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <TextView android:textSize="@dimen/tv_back_size" android:textColor="@color/white" android:id="@id/retBr" android:paddingLeft="@dimen/dp_13" android:paddingTop="@dimen/dp_14" android:paddingBottom="@dimen/dp_11" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ret" android:drawableLeft="@drawable/ret_white" android:drawablePadding="@dimen/dp_2" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintTop_toTopOf="parent" />
+        <TextView android:textSize="@dimen/tv_title_size" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/brightset" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout android:id="@id/wlan_setting_layout" android:background="@color/zj_white" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="64.0dip">
+        <com.flyco.roundview.RoundTextView android:gravity="center|left" android:id="@id/wlan_setting_textview" android:paddingLeft="20.0dip" android:clickable="true" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="自动调整" android:layout_alignParentLeft="true" android:layout_centerVertical="true" app:rv_backgroundColor="@color/zj_white" app:rv_backgroundPressColor="@color/zj_gay_line" />
+        <Switch android:id="@id/brightness_switch" android:background="@color/zj_white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="20.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <View android:background="@color/zj_gay_line" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/ll_seek_control" android:background="@color/zj_white" android:layout_width="fill_parent" android:layout_height="64.0dip">
+        <ImageView android:layout_gravity="center_vertical" android:layout_width="24.0dip" android:layout_height="24.0dip" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip" android:src="@mipmap/app_brightness_dark" />
+        <SeekBar android:layout_gravity="center_vertical" android:id="@id/brightness_seekbar" android:layout_width="0.0dip" android:layout_height="fill_parent" android:max="255" android:layout_weight="1.0" />
+        <ImageView android:layout_gravity="center_vertical" android:layout_width="24.0dip" android:layout_height="24.0dip" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip" android:src="@mipmap/app_brightness_light" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:background="@drawable/selector_common_bg" android:layout_width="fill_parent" android:layout_height="60.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/file_fl_icon" android:layout_width="60.0dip" android:layout_height="fill_parent">
+        <ImageView android:id="@id/file_iv_icon" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="center" />
+        <CheckBox android:enabled="false" android:layout_gravity="center" android:id="@id/file_cb_select" android:background="@drawable/selector_cb_file" android:focusableInTouchMode="false" android:clickable="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:button="@null" />
+    </FrameLayout>
+    <RelativeLayout android:paddingTop="8.0dip" android:paddingBottom="8.0dip" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <TextView android:textSize="16.0sp" android:id="@id/file_tv_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="英语四级" style="@style/book_theme_text_appearance.Common.SingleLine" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/file_ll_brief" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+            <TextView android:id="@id/file_tv_tag" android:background="@drawable/ic_tag_txt" android:layout_marginRight="15.0dip" android:text="TXT" android:layout_toRightOf="@id/file_fl_icon" android:layout_alignParentBottom="true" style="@style/book_theme_text_appearance.File.Tag" />
+            <TextView android:id="@id/file_tv_size" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15.0dip" />
+            <TextView android:id="@id/file_tv_date" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+        <TextView android:id="@id/file_tv_sub_count" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+</LinearLayout>

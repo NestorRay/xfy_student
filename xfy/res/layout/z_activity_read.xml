@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout android:id="@id/z_read_dl_slide" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:background="@drawable/theme_leather_bg" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <cn.psvmc.bookreader.widget.page.PageView android:id="@id/read_pv_page" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <TextView android:textColor="@color/white" android:gravity="center" android:id="@id/read_tv_page_tip" android:background="@color/nb_read_menu_bg" android:paddingLeft="12.0dip" android:paddingTop="8.0dip" android:paddingRight="12.0dip" android:paddingBottom="8.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip" android:text="1/12" android:layout_above="@id/read_ll_bottom_menu" android:layout_centerHorizontal="true" />
+        <com.google.android.material.appbar.AppBarLayout android:id="@id/read_abl_top_menu" android:background="@color/nb_read_menu_bg" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <androidx.appcompat.widget.Toolbar android:theme="@style/Theme.ToolBar.Menu" android:id="@id/toolbar" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="?actionBarSize">
+                <RelativeLayout android:layout_gravity="right" android:background="@color/nb_read_menu_bg" android:layout_width="120.0dip" android:layout_height="50.0dip" />
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/read_ll_bottom_menu" android:background="@color/nb_read_menu_bg" android:visibility="gone" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="60.0dip">
+                <TextView android:gravity="center" android:id="@id/read_tv_pre_chapter" android:layout_width="80.0dip" android:layout_height="fill_parent" android:text="上一章" style="@style/book_theme_text_appearance.Read.BottomMenu" />
+                <SeekBar android:id="@id/read_sb_chapter_progress" android:layout_width="0.0dip" android:layout_height="wrap_content" android:maxHeight="3.0dip" android:max="100" android:progressDrawable="@drawable/seekbar_bg" android:minHeight="3.0dip" android:thumb="@drawable/seekbar_thumb" android:thumbOffset="10.0dip" android:layout_weight="1.0" />
+                <TextView android:gravity="center" android:id="@id/read_tv_next_chapter" android:layout_width="80.0dip" android:layout_height="fill_parent" android:text="下一章" style="@style/book_theme_text_appearance.Read.BottomMenu" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:paddingTop="12.0dip" android:paddingBottom="12.0dip" android:layout_width="fill_parent" android:layout_height="72.0dip">
+                <TextView android:id="@id/read_tv_category" android:text="@string/nb_read_category" android:drawableTop="@drawable/ic_read_menu_category" style="@style/nb_theme_TextAppearance.Read.BottomMenu.Button" />
+                <TextView android:id="@id/read_tv_night_mode" android:text="@string/nb_mode_night" android:drawableTop="@drawable/ic_read_menu_night" style="@style/nb_theme_TextAppearance.Read.BottomMenu.Button" />
+                <TextView android:id="@id/read_tv_setting" android:text="@string/nb_read_setting" android:drawableTop="@drawable/ic_read_menu_font" style="@style/nb_theme_TextAppearance.Read.BottomMenu.Button" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout android:layout_gravity="start" android:orientation="vertical" android:background="@drawable/theme_leather_bg" android:paddingTop="@dimen/nb_padding_large" android:paddingBottom="@dimen/nb_padding_large" android:clickable="true" android:layout_width="300.0dip" android:layout_height="fill_parent">
+        <TextView android:textSize="20.0sp" android:textColor="@color/nb_text_default" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_marginBottom="8.0dip" android:text="目录" />
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <ListView android:id="@id/read_iv_category" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

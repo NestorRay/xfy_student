@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:gravity="center" android:id="@id/tv_title" android:layout_width="fill_parent" android:layout_height="36.0dip" android:textAlignment="center" />
+    <LinearLayout android:orientation="horizontal" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="50.0dip">
+        <EditText android:id="@id/et_url" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" />
+        <Button android:id="@id/btn_go" android:layout_width="60.0dip" android:layout_height="fill_parent" android:text="GO" />
+    </LinearLayout>
+    <android.webkit.WebView android:id="@id/browser" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton android:layout_gravity="end|bottom|center" android:id="@id/btn_close" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/dp_10" android:src="@drawable/iv_lt_close" android:layout_marginEnd="@dimen/dp_10" />
+</LinearLayout>

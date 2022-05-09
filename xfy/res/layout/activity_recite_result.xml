@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/rlyt_topbar" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/status_bar_height">
+        <TextView android:textSize="@dimen/tv_back_size" android:textColor="#ff6098ff" android:id="@id/tv_back" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:layout_marginTop="@dimen/dp_10" android:layout_marginBottom="@dimen/dp_10" android:text="返回" android:drawableLeft="@drawable/w_ret" android:layout_centerVertical="true" />
+        <TextView android:textSize="@dimen/tv_title_size" android:textColor="#ff333333" android:id="@id/tv_correct_no" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="背诵" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/rlyt_root" android:background="@color/app_bg" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/rlyt_topbar">
+        <RelativeLayout android:background="@drawable/shape_rlyt_bg" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dip">
+            <RelativeLayout android:background="@drawable/shape_rlyt_bg" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/llyt_play" android:layout_width="fill_parent" android:layout_height="70.0dip" android:layout_margin="5.0dip">
+                    <CheckBox android:id="@id/chk_play_btn" android:background="@drawable/play_btn_play_pause_selector" android:layout_width="25.0dip" android:layout_height="25.0dip" android:layout_marginLeft="20.0dip" android:button="@null" />
+                    <SeekBar android:id="@id/audio_play_bar" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:maxHeight="3.0dip" android:progressDrawable="@drawable/shape_seek_bg" android:minHeight="3.0dip" android:thumb="@mipmap/ann1" android:layout_weight="16.0" />
+                    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/llyt_time" android:layout_width="0.0dip" android:layout_height="70.0dip" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip" android:layout_weight="3.0" android:layout_alignParentRight="true">
+                        <TextView android:textSize="17.0sp" android:id="@id/tv_start_time_show" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="00:00" android:layout_centerVertical="true" />
+                        <TextView android:id="@id/tv_xie" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dip" android:layout_marginRight="3.0dip" android:text="/" android:layout_centerVertical="true" />
+                        <TextView android:textSize="17.0sp" android:id="@id/tv_stop_show_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="00:00" android:layout_centerVertical="true" />
+                    </LinearLayout>
+                </LinearLayout>
+                <View android:background="@color/zj_gay_line" android:layout_width="fill_parent" android:layout_height="@dimen/dp_0_1" android:layout_marginLeft="7.0dip" android:layout_marginRight="7.0dip" android:layout_below="@id/llyt_play" />
+                <TextView android:textSize="22.0sp" android:textColor="#ff333333" android:id="@id/tv_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_10" android:layout_marginBottom="@dimen/dp_10" android:text="" android:layout_below="@id/llyt_play" android:layout_centerHorizontal="true" />
+                <RelativeLayout android:orientation="horizontal" android:id="@id/llyt_recite_sult" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+                    <View android:background="@color/zj_gay_line" android:layout_width="fill_parent" android:layout_height="@dimen/dp_0_1" android:layout_marginLeft="7.0dip" android:layout_marginRight="7.0dip" />
+                    <TextView android:textSize="17.0sp" android:textColor="#ff333333" android:id="@id/tv_number" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_15" android:layout_marginTop="@dimen/dp_19" android:layout_marginBottom="@dimen/dp_18" android:text="评分: " android:layout_centerVertical="true" />
+                    <TextView android:textSize="25.0sp" android:textColor="#fff28011" android:id="@id/tv_number_really" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="100" android:layout_toRightOf="@id/tv_number" android:layout_centerVertical="true" />
+                    <TextView android:textSize="17.0sp" android:textColor="@color/txt_hei" android:id="@id/tv_zongfen" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_18" android:text="总分:" android:layout_toRightOf="@id/tv_number_really" android:layout_centerVertical="true" />
+                    <TextView android:textSize="25.0sp" android:textColor="@color/c_answer" android:id="@id/tv_zongfen_number" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="100" android:layout_toRightOf="@id/tv_zongfen" android:layout_centerVertical="true" />
+                    <TextView android:textSize="17.0sp" android:textColor="#ff333333" android:id="@id/tv_finish_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_18" android:text="完成时间：2020-06-09" android:layout_toRightOf="@id/tv_zongfen_number" android:layout_centerVertical="true" />
+                    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/llyt_swich" android:layout_width="@dimen/dp_110" android:layout_height="@dimen/dp_37" android:layout_marginRight="@dimen/dp_25" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+                        <com.flyco.roundview.RoundTextView android:textSize="@dimen/sp_14" android:gravity="center" android:id="@id/tv_origin" android:layout_width="0.0dip" android:layout_height="@dimen/dp_35" android:text="原文" android:layout_weight="1.0" android:layout_marginStart="1.0px" app:rv_cornerRadius_BL="@dimen/dp_20" app:rv_cornerRadius_TL="@dimen/dp_20" app:rv_strokeColor="@color/gray_border" app:rv_strokeWidth="1.0px" />
+                        <com.flyco.roundview.RoundTextView android:textSize="@dimen/sp_14" android:gravity="center" android:id="@id/tv_answer" android:layout_width="0.0dip" android:layout_height="@dimen/dp_35" android:text="背诵" android:layout_weight="1.0" app:rv_cornerRadius_BR="@dimen/dp_20" app:rv_cornerRadius_TR="@dimen/dp_20" app:rv_strokeColor="@color/gray_border" app:rv_strokeWidth="1.0px" />
+                    </LinearLayout>
+                </RelativeLayout>
+                <ScrollView android:id="@id/soll" android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true" android:layout_above="@id/llyt_recite_sult" android:layout_below="@id/tv_title">
+                    <TextView android:textSize="19.0sp" android:textColor="#ff5c6165" android:gravity="center_horizontal" android:id="@id/tv_content" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="15.0dip" android:text="" />
+                </ScrollView>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

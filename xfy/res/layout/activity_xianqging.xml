@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/rlyt_topbar" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/status_bar_height">
+        <TextView android:textSize="@dimen/tv_back_size" android:textColor="#ff6098ff" android:id="@id/tv_back" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="17.0dip" android:text="返回" android:drawableLeft="@drawable/w_ret" android:layout_centerVertical="true" />
+        <TextView android:textSize="@dimen/tv_title_size" android:textColor="#ff333333" android:ellipsize="end" android:gravity="center" android:id="@id/tv_top_title" android:layout_width="@dimen/tv_title_width" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_marginBottom="10.0dip" android:text="通知" android:maxLines="1" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <RelativeLayout android:background="#fff8f8fd" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/rlyt_topbar">
+        <RelativeLayout android:id="@id/relv_xiangqing" android:background="@drawable/shape_rlyt_bg" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:textSize="@dimen/tv_title_size" android:textColor="@color/txtWd" android:id="@id/tv_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="13.0dip" android:layout_centerHorizontal="true" style="@style/singleText" />
+            <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/llyt_xiangqing" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_below="@id/tv_title">
+                <TextView android:textSize="16.0sp" android:textColor="#ff999999" android:id="@id/tv_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" android:drawableLeft="@drawable/naozhong" android:drawablePadding="10.0dip" />
+                <TextView android:textSize="16.0sp" android:textColor="#ff999999" android:id="@id/tv_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="25.0dip" android:text="" android:drawableLeft="@drawable/dname" android:drawablePadding="10.0dip" />
+            </LinearLayout>
+            <View android:id="@id/v_line1" android:background="#ffe7e7e7" android:layout_width="fill_parent" android:layout_height="@dimen/dp_0_1" android:layout_marginLeft="@dimen/dp_7" android:layout_marginTop="@dimen/dp_10" android:layout_marginRight="@dimen/dp_7" android:layout_below="@id/llyt_xiangqing" />
+            <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/v_line1">
+                <TextView android:textSize="16.0sp" android:textColor="#ff5c6165" android:id="@id/tv_content" android:paddingBottom="23.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="18.0dip" android:layout_marginTop="@dimen/dp_18" android:layout_marginRight="18.0dip" android:text="" />
+            </ScrollView>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

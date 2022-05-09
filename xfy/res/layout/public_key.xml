@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/rlyt_base_key" android:background="#66000000" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/rlyt_key" android:background="@drawable/shape_pop_bg" android:layout_width="400.0dip" android:layout_height="180.0dip" android:layout_centerInParent="true">
+        <TextView android:textSize="14.0sp" android:textColor="@color/gray" android:id="@id/tv_key" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_marginTop="20.0dip" android:text="密码" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/llyt_key" android:paddingTop="8.0dip" android:paddingBottom="8.0dip" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_marginTop="8.0dip" android:layout_marginRight="15.0dip" android:layout_below="@id/tv_key">
+            <TextView android:textColor="@color/txt_hei" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="输入密码  : " />
+            <EditText android:textSize="14.0sp" android:id="@id/ed_key" android:background="@color/white" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_10" android:hint="请输入密码" android:maxLines="1" android:maxLength="6" />
+        </LinearLayout>
+        <View android:background="@color/gray" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginLeft="15.0dip" android:layout_marginRight="15.0dip" android:layout_below="@id/llyt_key" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:paddingTop="10.0dip" android:paddingBottom="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="15.0dip" android:layout_alignParentBottom="true">
+            <TextView android:gravity="center" android:id="@id/tv_cancel" android:background="@drawable/shape_pop_bg" android:layout_width="120.0dip" android:layout_height="35.0dip" android:layout_marginRight="@dimen/dp_15" android:text="取消" />
+            <TextView android:gravity="center" android:id="@id/tv_sure" android:background="@drawable/shape_pop_bg" android:layout_width="120.0dip" android:layout_height="35.0dip" android:layout_marginLeft="15.0dip" android:text="确定" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

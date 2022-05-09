@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:paddingRight="10.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/navi_bar_height" android:layout_marginTop="@dimen/status_bar_height">
+        <TextView android:textSize="@dimen/tv_back_size" android:textColor="#ff6098ff" android:id="@id/back_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="返回" android:layout_centerVertical="true" android:drawableStart="@drawable/w_ret" android:layout_marginStart="17.0dip" />
+        <TextView android:textSize="@dimen/tv_title_size" android:textColor="@color/titleColor" android:id="@id/tv_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="预习资源列表" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <LinearLayout android:orientation="horizontal" android:background="@color/gray_bg" android:paddingTop="@dimen/dp_1" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="134.5dip" android:layout_height="fill_parent">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:padding="@dimen/dp_10" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <ImageView android:paddingTop="@dimen/dp_5" android:layout_width="wrap_content" android:layout_height="@dimen/dp_21" android:src="@mipmap/icon_yuxi_resource" />
+                <TextView android:textSize="@dimen/sp_14" android:paddingLeft="@dimen/dp_5" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="预习文件列表" android:layout_weight="1.0" />
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/yuxi_resources" android:paddingBottom="10.0dip" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+        </LinearLayout>
+        <LinearLayout android:paddingLeft="@dimen/dp_5" android:paddingTop="@dimen/dp_5" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <FrameLayout android:id="@id/file_frag" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

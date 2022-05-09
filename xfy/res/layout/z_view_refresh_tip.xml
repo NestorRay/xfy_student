@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:textColor="@color/white" android:gravity="center" android:id="@id/scroll_refresh_tv_tip" android:background="@color/nb_scroll_refresh_tip" android:padding="8.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="似乎没有网络哦" android:translationZ="100.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

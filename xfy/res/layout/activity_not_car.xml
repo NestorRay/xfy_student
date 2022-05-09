@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/white" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.example.juanshichang.widget.MyScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/ScrollNoShadow">
+        <LinearLayout android:orientation="vertical" android:id="@id/mNoGoodLayout" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:layout_alignParentStart="true">
+            <ImageView android:layout_gravity="center_horizontal" android:layout_width="546.0px" android:layout_height="886.0px" android:layout_marginTop="300.0px" android:src="@mipmap/nowifi" />
+            <TextView android:textSize="@dimen/sp_14" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/mGoGuangguangTV" android:background="@drawable/bg_notcar" android:paddingLeft="@dimen/dp_33" android:paddingRight="@dimen/dp_33" android:layout_width="wrap_content" android:layout_height="@dimen/dp_40" android:layout_marginLeft="@dimen/dp_13" android:layout_marginTop="@dimen/dp_22" android:layout_marginRight="@dimen/dp_13" android:text="刷 新" />
+            <TextView android:textSize="@dimen/sp_15" android:textColor="@color/txt_hei" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="74.0px" android:text="您的网络开小差了!" />
+            <TextView android:textSize="@dimen/sp_14" android:textColor="@color/txt_gray" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0px" android:text="请检查您的网络设置,再刷新试试吧!" />
+        </LinearLayout>
+    </com.example.juanshichang.widget.MyScrollView>
+</RelativeLayout>

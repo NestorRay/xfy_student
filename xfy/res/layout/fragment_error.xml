@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.example.juanshichang.widget.MyScrollView android:id="@id/scr_error" android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/ScrollNoShadow">
+        <RelativeLayout android:orientation="vertical" android:paddingTop="@dimen/dp_8" android:paddingBottom="@dimen/dp_10" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <RelativeLayout android:id="@id/rlyt_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_10" android:layout_marginBottom="@dimen/dp_10">
+                <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/llyt_refresh" android:background="@drawable/shape_refresh_bg" android:layout_width="@dimen/dp_75" android:layout_height="@dimen/dp_30" android:layout_marginLeft="10.0dip" android:layout_marginRight="@dimen/dp_10" android:layout_alignParentRight="true">
+                    <ImageView android:id="@id/iv_refresh" android:background="@drawable/iv_refresh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" />
+                    <TextView android:textSize="@dimen/sp_14" android:textColor="@color/login_tit" android:id="@id/tv_refre" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="刷新" />
+                </LinearLayout>
+                <org.sufficientlysecure.htmltextview.HtmlTextView android:textSize="@dimen/sp_17" android:textColor="@color/txtWd" android:gravity="center_vertical" android:id="@id/wvTit" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_16" android:textScaleX="1.0" android:layout_toLeftOf="@id/llyt_refresh" android:layout_alignTop="@id/llyt_refresh" android:layout_alignParentLeft="true" android:lineSpacingExtra="0.0dip" android:lineSpacingMultiplier="1.2" android:letterSpacing="0.1" />
+            </RelativeLayout>
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/workRc" android:paddingTop="@dimen/dp_10" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/rlyt_title" android:nestedScrollingEnabled="true" app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" style="@style/ScrollNoShadow" />
+        </RelativeLayout>
+    </com.example.juanshichang.widget.MyScrollView>
+</RelativeLayout>

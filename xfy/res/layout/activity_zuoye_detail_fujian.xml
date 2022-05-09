@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:id="@id/llyt_title" android:layout_width="fill_parent" android:layout_height="@dimen/navi_bar_height" android:layout_marginTop="@dimen/status_bar_height">
+        <TextView android:textSize="16.0sp" android:textColor="@color/logBut" android:gravity="center_vertical" android:id="@id/back_tv" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/ret" android:drawableStart="@drawable/w_ret" android:paddingStart="10.0dip" android:foregroundTint="@color/logBut" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/titleColor" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="答题卡" />
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/num_recycleview" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginRight="10.0dip" android:layout_weight="1.0" />
+    </LinearLayout>
+    <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundLinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/llyt_title" app:qmui_backgroundColor="@color/white" app:qmui_radius="10.0dip">
+        <LinearLayout android:background="@color/wlback" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:layout_width="fill_parent" android:layout_height="36.0dip">
+            <TextView android:textSize="14.0dip" android:textColor="@color/titleColor" android:layout_gravity="center_vertical" android:id="@id/title_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" android:paddingStart="10.0dip">
+                    <TextView android:textSize="16.0sp" android:textColor="@color/pigai" android:id="@id/zuoyefujian" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="作业" android:layout_centerVertical="true" />
+                    <View android:layout_gravity="center_horizontal" android:id="@id/view_x" android:background="@color/c_line_gray" android:layout_width="1.0dip" android:layout_height="16.0dip" android:layout_centerVertical="true" android:layout_marginStart="10.0dip" android:layout_marginEnd="10.0dip" android:layout_toEndOf="@id/zuoyefujian" />
+                    <TextView android:textSize="16.0sp" android:textColor="@color/heise" android:id="@id/daanfujian" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="答案" android:layout_centerVertical="true" android:layout_toEndOf="@id/view_x" />
+                </RelativeLayout>
+                <View android:background="@color/c_line_gray" android:layout_width="fill_parent" android:layout_height="1.0px" />
+                <androidx.recyclerview.widget.RecyclerView android:id="@id/ques_recycleview" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginTop="2.0dip" android:layout_weight="7.0" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:background="@color/bgcolor_fc" android:layout_width="@dimen/dp_200" android:layout_height="fill_parent">
+                <ScrollView android:id="@id/scrol" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+                    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <FrameLayout android:id="@id/xuanze_fl" android:paddingTop="5.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                            <androidx.recyclerview.widget.RecyclerView android:id="@id/xuanze_recycleview" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+                        </FrameLayout>
+                        <LinearLayout android:orientation="vertical" android:id="@id/jianda_ll" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                            <LinearLayout android:orientation="vertical" android:id="@id/paizhao_btn" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                                <View android:layout_gravity="center_horizontal" android:background="@drawable/d_camera" android:layout_width="56.0dip" android:layout_height="50.0dip" android:layout_marginTop="10.0dip" />
+                                <TextView android:textSize="@dimen/sp_12" android:textColor="@color/txt_gray" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_marginBottom="2.0dip" android:text="@string/startCamera" />
+                            </LinearLayout>
+                            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                                <ImageView android:layout_gravity="center_horizontal" android:id="@id/ivPz" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="260.0dip" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" />
+                                <org.sufficientlysecure.htmltextview.HtmlTextView android:textSize="16.0sp" android:textColor="@color/titleColor" android:layout_gravity="center_horizontal" android:id="@id/ivPz_html_fj" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" android:maxWidth="@dimen/dp_100" />
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout android:orientation="vertical" android:id="@id/daan_jiexi_ll" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                            <TextView android:textSize="16.0sp" android:textColor="@color/titleColor" android:gravity="center_vertical" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:layout_width="fill_parent" android:layout_height="40.0dip" android:text="正确答案:" />
+                            <org.sufficientlysecure.htmltextview.HtmlTextView android:textSize="16.0sp" android:textColor="@color/titleColor" android:id="@id/daan_html_tv" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" android:layout_marginBottom="5.0dip" />
+                            <TextView android:textSize="16.0sp" android:textColor="@color/titleColor" android:gravity="center_vertical" android:id="@id/label_defen" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:layout_width="fill_parent" android:layout_height="40.0dip" android:text="得分:" />
+                            <TextView android:textSize="16.0sp" android:textColor="@color/zuoye_defen_piyu" android:id="@id/tv_defen" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" android:lineSpacingMultiplier="1.3" />
+                            <TextView android:textSize="16.0sp" android:textColor="@color/titleColor" android:gravity="center_vertical" android:id="@id/label_piyu" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:layout_width="fill_parent" android:layout_height="40.0dip" android:text="批语:" />
+                            <org.sufficientlysecure.htmltextview.HtmlTextView android:textSize="16.0sp" android:textColor="@color/zuoye_defen_piyu" android:id="@id/piyu_html_tv" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" android:layout_marginBottom="5.0dip" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </ScrollView>
+                <LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:id="@id/tijiao_ll" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:layout_marginBottom="10.0dip">
+                    <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton android:textSize="18.0dip" android:textColor="@color/white" android:id="@id/tijiao_btn" android:padding="10.0dip" android:layout_width="@dimen/dp_160" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="提交本题" app:qmui_backgroundColor="@color/zj_blue" app:qmui_borderColor="@color/zj_blue" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </com.qmuiteam.qmui.widget.roundwidget.QMUIRoundLinearLayout>
+    <RelativeLayout android:id="@id/rlyt_pop_zy" android:background="#66000000" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/recy_zuoye_image" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/tiku_img_sf" android:background="#66000000" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <com.github.chrisbanes.photoview.PhotoView android:id="@id/iv_show" android:layout_width="@dimen/dp_400" android:layout_height="@dimen/dp_350" android:layout_centerInParent="true" />
+        <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/dp_80" android:layout_marginBottom="20.0dip" android:layout_below="@id/iv_show" android:layout_alignParentBottom="true">
+            <RelativeLayout android:gravity="center" android:id="@id/rlyt_left_bg" android:background="@drawable/shape_pigai_bg" android:layout_width="@dimen/dp_58" android:layout_height="@dimen/dp_58" android:layout_marginRight="@dimen/dp_80">
+                <ImageView android:id="@id/iv_left" android:background="@drawable/iv_left" android:layout_width="@dimen/dp_43" android:layout_height="@dimen/dp_43" />
+            </RelativeLayout>
+            <RelativeLayout android:gravity="center" android:id="@id/rlyt_right_bg" android:background="@drawable/shape_pigai_bg" android:layout_width="@dimen/dp_58" android:layout_height="@dimen/dp_58" android:layout_marginLeft="@dimen/dp_80">
+                <ImageView android:id="@id/iv_right" android:background="@drawable/iv_right" android:layout_width="@dimen/dp_43" android:layout_height="@dimen/dp_43" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

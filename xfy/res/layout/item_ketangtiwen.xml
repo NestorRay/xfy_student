@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="16.0sp" android:id="@id/tiwen_num" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="第1题" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_marginBottom="10.0dip">
+        <LinearLayout android:orientation="vertical" android:background="@drawable/jietu_bg" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15.0dip">
+            <ImageView android:id="@id/tiwen_imageview" android:layout_width="170.0dip" android:layout_height="170.0dip" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/sp_17" android:gravity="center_vertical" android:id="@id/tiwen_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip" android:text="时间：2020:09:09" />
+            <TextView android:textSize="@dimen/sp_17" android:gravity="center_vertical" android:id="@id/tixing" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip" android:text="题型：选择题" />
+            <TextView android:textSize="@dimen/sp_17" android:gravity="center_vertical" android:id="@id/zhengquedaan" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip" android:text="正确答案：A" />
+            <TextView android:textSize="@dimen/sp_17" android:gravity="center_vertical" android:id="@id/zhengquelv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip" android:text="平均正确率：80%" />
+            <LinearLayout android:orientation="horizontal" android:id="@id/answer_img_l" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:textSize="@dimen/sp_17" android:id="@id/answer_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="我的答案：" />
+                <TextView android:textSize="@dimen/sp_17" android:id="@id/answer" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" />
+                <ImageView android:id="@id/answer_imageview" android:layout_width="30.0dip" android:layout_height="30.0dip" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

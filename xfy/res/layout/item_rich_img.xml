@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:background="@drawable/jietu_bg" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintBottom_toTopOf="@id/llyt_roat" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <ImageView android:id="@id/rich_txt_imageview" android:layout_width="@dimen/dp_500" android:layout_height="@dimen/dp_400" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/llyt_roat" android:layout_width="fill_parent" android:layout_height="@dimen/dp_80" android:layout_marginBottom="15.0dip" android:layout_centerVertical="true" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent">
+        <RelativeLayout android:gravity="center" android:id="@id/rlyt_left" android:background="@drawable/shape_pigai_bg" android:layout_width="@dimen/dp_58" android:layout_height="@dimen/dp_58" android:layout_marginRight="@dimen/dp_80">
+            <ImageView android:id="@id/iv_left" android:background="@drawable/iv_left" android:layout_width="@dimen/dp_43" android:layout_height="@dimen/dp_43" />
+        </RelativeLayout>
+        <RelativeLayout android:gravity="center" android:id="@id/rlyt_right" android:background="@drawable/shape_pigai_bg" android:layout_width="@dimen/dp_58" android:layout_height="@dimen/dp_58" android:layout_marginStart="@dimen/dp_80">
+            <ImageView android:id="@id/iv_right" android:background="@drawable/iv_right" android:layout_width="@dimen/dp_43" android:layout_height="@dimen/dp_43" android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

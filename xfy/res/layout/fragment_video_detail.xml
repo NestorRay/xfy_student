@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.juanshichang.widget.MyScrollView android:paddingTop="@dimen/dp_12" android:paddingBottom="@dimen/dp_7" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_12" android:layout_marginRight="@dimen/dp_12"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:paddingLeft="@dimen/dp_40" android:paddingRight="@dimen/dp_38" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/sp_15" android:textColor="@color/txtWd" android:gravity="center_horizontal" android:id="@id/vTit" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/singleText" />
+        <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_8">
+            <TextView android:textSize="@dimen/sp_8" android:textColor="@color/txt_gray" android:id="@id/vDate" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/singleText" />
+            <TextView android:textSize="@dimen/sp_8" android:textColor="@color/txt_gray" android:id="@id/vPName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_11" style="@style/singleText" />
+            <TextView android:textSize="@dimen/sp_8" android:textColor="@color/txt_gray" android:id="@id/vDuration" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_11" style="@style/singleText" />
+            <TextView android:textSize="@dimen/sp_8" android:textColor="@color/txt_gray" android:id="@id/vPlayNext" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dp_11" style="@style/singleText" />
+        </LinearLayout>
+        <include android:id="@id/teacherVideo" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_7" layout="@layout/myvideo" />
+        <TextView android:textSize="@dimen/sp_8" android:textColor="@color/txt_hei" android:id="@id/botDetail" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_12" android:lineSpacingExtra="@dimen/dp_6" />
+    </LinearLayout>
+</com.example.juanshichang.widget.MyScrollView>

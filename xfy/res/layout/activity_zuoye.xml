@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:paddingRight="10.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/navi_bar_height" android:layout_marginTop="@dimen/status_bar_height">
+        <TextView android:textSize="@dimen/tv_back_size" android:textColor="#ff6098ff" android:id="@id/back_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="返回" android:layout_centerVertical="true" android:drawableStart="@drawable/w_ret" android:layout_marginStart="17.0dip" />
+        <TextView android:textSize="@dimen/tv_title_size" android:textColor="@color/titleColor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="作业" android:layout_centerInParent="true" />
+        <org.angmarch.views.NiceSpinner android:textSize="15.0sp" android:id="@id/status_spinner" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="40.0dip">
+                <Spinner android:textSize="16.0sp" android:textColor="@color/txt_hei" android:id="@id/sp_yuxi" android:layout_width="0.0dip" android:layout_height="40.0dip" android:layout_weight="1.0" android:spinnerMode="dropdown" />
+                <RelativeLayout android:id="@id/refresh_jc" android:layout_width="40.0dip" android:layout_height="40.0dip">
+                    <ImageView android:layout_width="24.0dip" android:layout_height="24.0dip" android:src="@drawable/jc_refresh" android:layout_centerInParent="true" />
+                </RelativeLayout>
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/zhangjie_recycleview" android:paddingBottom="10.0dip" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+        </LinearLayout>
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout android:id="@id/m_refreshlayoyt" android:background="@color/wlback" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="2.0" app:srlEnableHeaderTranslationContent="false">
+            <com.scwang.smartrefresh.header.MaterialHeader android:layout_width="fill_parent" android:layout_height="wrap_content" />
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/recycleview" android:paddingLeft="5.0dip" android:paddingRight="5.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+            <com.scwang.smartrefresh.layout.footer.ClassicsFooter android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </LinearLayout>
+</LinearLayout>

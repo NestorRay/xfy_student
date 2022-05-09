@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/rlyt_title" android:layout_width="fill_parent" android:layout_height="@dimen/navi_bar_height" android:layout_marginTop="@dimen/status_bar_height">
+        <TextView android:textSize="@dimen/tv_back_size" android:textColor="#ff6098ff" android:id="@id/back_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="返回" android:layout_centerVertical="true" android:drawableStart="@drawable/w_ret" android:layout_marginStart="17.0dip" />
+        <TextView android:textSize="@dimen/tv_title_size" android:textColor="@color/titleColor" android:ellipsize="end" android:gravity="center" android:id="@id/tv_title" android:layout_width="200.0dip" android:layout_height="wrap_content" android:maxLines="1" android:layout_centerInParent="true" />
+        <RelativeLayout android:gravity="center" android:id="@id/rlyt_refresh" android:layout_width="100.0dip" android:layout_height="fill_parent" android:layout_alignParentRight="true">
+            <ImageView android:id="@id/iv_refresh" android:background="@drawable/iv_refresh" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="刷新" android:layout_toRightOf="@id/iv_refresh" />
+        </RelativeLayout>
+        <ImageView android:background="@color/app_bg" android:layout_width="fill_parent" android:layout_height="8.0dip" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/rlyt_title">
+        <ScrollView android:paddingLeft="15.0dip" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <RelativeLayout android:gravity="center_vertical" android:id="@id/rlyt_title_left" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <TextView android:textSize="15.0sp" android:textColor="@color/txt_hei" android:id="@id/tv_type_class" android:paddingTop="3.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent" android:lineSpacingExtra="6.0dip" />
+                </RelativeLayout>
+                <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_below="@id/rlyt_title_left">
+                    <RelativeLayout android:id="@id/rlyt_info" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <ImageView android:id="@id/iv_header" android:layout_width="37.0dip" android:layout_height="37.0dip" />
+                        <TextView android:textColor="@color/txt_gray" android:id="@id/tv_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_toRightOf="@id/iv_header" />
+                        <TextView android:textSize="14.0sp" android:textColor="@color/dialogSuc" android:gravity="center" android:id="@id/tv_sy_number" android:background="@drawable/student_num_label" android:layout_width="80.0dip" android:layout_height="26.0dip" android:layout_marginLeft="10.0dip" android:text="剩余名额" android:layout_toRightOf="@id/tv_name" android:layout_centerVertical="true" />
+                    </RelativeLayout>
+                    <TextView android:textColor="@color/txt_gray" android:id="@id/tv_kcjj" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_below="@id/rlyt_info" />
+                    <TextView android:textColor="@color/txt_gray" android:id="@id/tv_kcqx" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_below="@id/tv_kcjj" android:lineSpacingExtra="6.0dip" />
+                    <TextView android:textColor="@color/txt_gray" android:id="@id/tv_ms" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_below="@id/tv_kcqx" android:lineSpacingExtra="6.0dip" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </ScrollView>
+        <ImageView android:background="@color/app_bg" android:layout_width="8.0dip" android:layout_height="fill_parent" />
+        <RelativeLayout android:id="@id/rlyt_right" android:layout_width="2.0dip" android:layout_height="fill_parent" android:layout_weight="3.0">
+            <RelativeLayout android:id="@id/rlyt_ym" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/iv_linear_gray" android:layout_alignParentRight="true">
+                <ImageView android:background="@drawable/xk_center" android:layout_width="35.0dip" android:layout_height="35.0dip" android:layout_alignParentRight="true" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/white" android:gravity="center" android:layout_width="wrap_content" android:layout_height="30.0dip" android:text="已满" android:layout_alignParentRight="true" />
+            </RelativeLayout>
+            <RelativeLayout android:gravity="center_vertical" android:id="@id/rlyt_kcdg" android:layout_width="fill_parent" android:layout_height="35.0dip">
+                <TextView android:textSize="15.0sp" android:id="@id/tV_kcdg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="课程大纲" />
+            </RelativeLayout>
+            <TextView android:textColor="@color/txt_gray" android:gravity="center_vertical" android:id="@id/tv_gjj" android:layout_width="wrap_content" android:layout_height="35.0dip" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" android:layout_below="@id/rlyt_kcdg" />
+            <TextView android:textColor="@color/txt_gray" android:gravity="center_vertical" android:id="@id/tv_kcyxq" android:layout_width="wrap_content" android:layout_height="35.0dip" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" android:layout_below="@id/rlyt_kcdg" android:layout_alignParentRight="true" />
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/recy_content" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/llyt_bm" android:layout_below="@id/tv_gjj" app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            <RelativeLayout android:id="@id/llyt_bm" android:layout_width="fill_parent" android:layout_height="70.0dip" android:layout_alignParentBottom="true" android:layout_marginStart="5.0dip" android:layout_marginEnd="5.0dip" android:layout_alignParentEnd="true">
+                <LinearLayout android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_alignParentStart="true">
+                    <TextView android:textSize="16.0sp" android:textColor="@color/txt_gray" android:gravity="center" android:id="@id/bmsjl" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="40.0dip" android:text="报名时间:" android:layout_marginEnd="10.0dip" />
+                    <TextView android:textSize="16.0sp" android:textColor="@color/txt_gray" android:gravity="center" android:id="@id/bmsj" android:layout_width="wrap_content" android:layout_height="40.0dip" android:text="" android:layout_marginEnd="10.0dip" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_alignParentEnd="true">
+                    <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/tv_ljbm" android:background="@drawable/shape_ljbb_bg" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="40.0dip" android:text="立即报名" android:layout_marginEnd="10.0dip" />
+                    <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/tv_qxbm" android:background="@drawable/shape_qxbb_bg" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="40.0dip" android:text="取消报名" android:layout_marginEnd="10.0dip" />
+                    <TextView android:textSize="16.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/tv_ybm" android:background="@drawable/shape_ybm_bg" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="40.0dip" android:text="已报名" android:layout_marginEnd="10.0dip" />
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>
